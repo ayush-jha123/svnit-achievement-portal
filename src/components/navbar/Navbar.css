@@ -1,0 +1,42 @@
+.navbar{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    padding-right: 10px;
+
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title img{
+    margin: 30px;
+    width: 50px; 
+   object-fit: contain;
+}
+
+
+.LogIn{
+        user-select: none;
+        margin: 10px;
+        padding: 5px;
+        color: black;
+        background-color: transparent;
+        transition: all ease-in-out .2s;
+        width: max-content;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;    
+}
+
+.name{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
