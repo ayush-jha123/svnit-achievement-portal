@@ -6,8 +6,10 @@ import Footer from '../components/navbar/Footer.jsx';
 function Home() {
   return (
     <>
+   
       <Header />
       <Footer/>
+     
     </>
   );
 }
