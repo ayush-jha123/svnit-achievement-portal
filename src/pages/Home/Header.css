@@ -5,4 +5,84 @@
 .navbar{
     position: sticky;
     top:0;
+    z-index: 100;
+    background-color: rgb(253, 253, 253);
+}
+
+/* Header.css */
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    padding: 2rem;
+    /* margin-top : 20vh; */
+}
+
+.header-title {
+    max-width: 45vw;
+    margin-right: 10vw;
+    margin-top: 20vh;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.header p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.btn-get-started {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-content img{
+    position: relative;
+    margin-top: 5vh;
+    height: 75vh;
+    width: 30vw;
+}
+
+.header-quote {
+    border-radius: 25%;
+    background-color: #0B093A;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+    position: absolute;
+    width: 20vw;
+    top:65vh;
+    right: 30vw;
+}
+
+
+.blockQuote{
+    background-color: #0B093A;
+    color: white;
+}
+
+.footer {
+    background-color: #0B093A;
+    color: #D9A218;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-style: italic;
 }
