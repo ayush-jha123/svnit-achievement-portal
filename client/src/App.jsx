@@ -5,6 +5,7 @@ import Achivements from './pages/Achivements'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 import Opp from './pages/opp'
 import Dash from './pages/Dashboard'
+
 // import Navbar from './components/Navbar'
 
 function App() {

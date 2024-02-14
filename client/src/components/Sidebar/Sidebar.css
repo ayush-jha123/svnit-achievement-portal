@@ -1,0 +1,127 @@
+/* Styling for the text beside icons */
+.side-navbar .nav-item .text {
+  margin-left: 0.5rem; /* Add spacing between icon and text */
+  display: none; /* Hide the text by default */
+}
+
+/* Show text when sidebar is expanded */
+.side-navbar.expanded .nav-item .text {
+  display: inline-block; /* Show the text when sidebar is expanded */
+}
+
+/* Styling for the sidebar */
+.side-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #485461, #28313b); /* Gradient background */
+  color: white;
+  height: 100vh;
+  width: 50px;
+  transition: width 0.3s;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.side-navbar.expanded {
+  width: 200px;
+}
+
+.side-navbar .toggle-icon {
+  padding: 1rem;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.side-navbar .nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Styling for the sidebar icons */
+.side-navbar .nav-item {
+  padding: 1rem;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  border-top-right-radius: 20px;
+  margin-bottom: 0.5rem; /* Increase the space between icons and the next item */
+}
+
+.side-navbar .nav-item:first-child {
+  margin-top: 1rem;
+}
+
+.side-navbar .nav-item:last-child {
+  margin-bottom: 1rem;
+}
+
+.side-navbar .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.side-navbar .nav-item:hover .icon {
+  transform: scale(1.2);
+}
+
+/* Styling for the sidebar icons */
+.side-navbar .nav-item .icon {
+  margin-right: 0.25rem; /* Adjust icon margin */
+  margin-bottom: 2px; /* Add margin-bottom to align icons vertically */
+  transition: transform 0.3s;
+}
+
+/* Styling for the logout button */
+.side-navbar .logout-button {
+  padding: 0.5rem;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  display: none; /* Hide the logout button by default */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent; /* Add border styling */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin-top: auto;
+  background-color: #34495e;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smoother effect */
+}
+
+/* Show logout button when sidebar is expanded */
+.side-navbar.expanded .logout-button {
+  display: flex; /* Show the logout button when sidebar is expanded */
+}
+
+.side-navbar .logout-button:hover {
+  background-color: #293846;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2); /* Change border color on hover */
+}
+
+.side-navbar .logout-button .icon {
+  margin-right: 0.25rem;
+  transition: transform 0.3s;
+}
+
+/* Styling for the sidebar icons when expanded */
+/* Styling for the sidebar icons */
+.side-navbar.expanded .nav-item .icon {
+  margin-bottom: 0.5rem; /* Add margin-bottom to align icons vertically */
+}
+
+/* Styling for the text beside icons */
+.side-navbar.expanded .nav-item .text {
+  margin-left: 0.5rem; /* Add spacing between icon and text */
+}
+
