@@ -1,0 +1,81 @@
+/* Default styles for larger screens */
+* {
+    margin: 0vh;
+    padding: 0vh;
+}
+
+.container {
+    height: 900px;
+    width: 100wv;
+    background-image: url('/assets/AchivementPageBG.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    margin-bottom: 0;
+}
+
+.head{
+    
+         font-size: 2rem;
+         padding: 0px;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-evenly;
+}
+
+.Main {
+    display: flex;
+    padding: 2vw;
+    margin-top: -2%;
+}
+
+.header {
+    font-size: 2rem;
+    padding: 0px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+}
+
+.Cards {
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: -2vh;
+    flex-wrap: wrap;
+    padding: 6vh;
+}
+
+
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    /* padding: 1rem; */
+    /* Adjust as needed */
+}
+
+/* Add padding to cards */
+.Card {
+    padding: 2em;
+    justify-content: space-between;
+    /* Adjust as needed */
+}
+
+/* Add padding to the sidebar */
+.Sidebar {
+    padding-right: 1em;
+    /* Adjust as needed */
+}
+
+.view {
+    margin-top: -3%;
+    font-size: large;
+    margin-left: 80%;
+    margin-bottom: 3%;
+}
+
+p:hover {
+    text-decoration: underline;
+}
