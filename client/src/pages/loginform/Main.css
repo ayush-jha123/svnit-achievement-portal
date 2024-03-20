@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.image{
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 70vh;
+    box-sizing: border-box;
+}
+.content-1{
+    position: relative;
+    width: 45%;
+    height: 100%;
+    background-color: #ffffff;
+    margin-left: 15%;
+    box-sizing: border-box;
+    margin-top: 3%;
+}
+.content-2{
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    background-color: #223752;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+.intro{
+    color: white;
+    width: 100%;
+    height: 20%;
+    margin-top: 5%;
+    font-size: 1.5em;
+    text-align: center;
+}
+.INPUT{
+    position: relative;
+    width: 120%;
+    height: 40%;
+    background-color: #4fa5de;
+    left: -25%;
+    top: 7.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+.email{
+    position: relative;
+    width: 90%;
+    height: 40%;
+    font-size: 1.3em;
+    left: 4%;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    margin-bottom: 4%;
+}
+.password{
+    position: relative;
+    width: 90%;
+    height: 40%;
+    font-size: 1.3em;
+    left: 4%;
+    border: none;
+    border-radius: 2px;
+    padding: 8px;
+    margin-top: 4%;
+}
+.signin{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+}
+.sign{
+    position: relative;
+    bottom: 50%;
+    font-size: 1.3em;
+    right: 5%;
+    border-radius: 4px;
+    padding: 8px;
+}
