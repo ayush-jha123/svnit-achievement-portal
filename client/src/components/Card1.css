@@ -1,22 +1,38 @@
-.card{
-    height: 100px;
-    width: 100px;
+.card1{
+    /* display: flow-root; */
+    height: 50vh;
+    width: 40vh;
+    background-color: #FFFFFF;
+    /* border-radius: 1rem; */
+    margin-left: 1.7rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    margin-right: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1{
+.Dev{
     font-size: 2rem;
-    color: #16253D;
+    color : #16253D;
+    font-weight: 500;
+    margin-bottom: 2rem;
 }
 
-pr{
+.opp{
+    height: 60%;
+    width: 100%;
     font-size: 1rem;
     color: #16253D;
 }
 
-button{
+.explore{
+    height: 2rem;
+    width: 6rem;
     background-color: #16253D;
-    color: white;
-    
+    color: #ffffff;
 }
 
 
