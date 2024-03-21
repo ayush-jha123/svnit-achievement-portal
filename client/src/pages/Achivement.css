@@ -1,12 +1,12 @@
 /* Default styles for larger screens */
 *{
-    margin: 0vh;
-    padding: 0vh;
+    margin: 0px;
+    padding: 0px;
 }
 
 .container {
-    height: 900px;
-    width: 100wv;
+    height: 100%;
+    width: 100%;
         background-image: url('/assets/AchivementPageBG.svg');
         background-size: contain;
         background-repeat: no-repeat;
@@ -28,10 +28,9 @@
 
 .Cards {
     display: flex;
-    /* flex-direction: column; */
-    margin-top: -2vh;
+    margin-top: -5vh;
     flex-wrap: wrap ;
-    padding: 6vh;
+    padding: 0px;
 }
 
 

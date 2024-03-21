@@ -1,20 +1,18 @@
 import React from 'react'
-import Opppop from '../pages/Opp/Opppop'
+import './Card1.css'
 
 const Card = () => {
   return (
-    <div className='card'>
-        <h1>
+    <div className='card1'>
+        <h1 className='Dev'>
             Developer
         </h1>
-        <pr>
+        <p className='opp'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
-        </pr>
-        <Opppop>
-          <button>
+        </p>
+          <button className='explore'>
             Explore
           </button>
-        </Opppop>
     </div>
   )
 }
