@@ -3,12 +3,13 @@ import React from 'react'
 import svnitIcon from '../../public/assets/Group 21.png'
 import svnitIcon2 from '../../public/assets/Ellipse 14.png'
 import svnitIcon3 from '../../public/assets/Ellipse 12.png'
+import Navbar from '../components/Navbar'
 import './Dashboard.css'
 export default function Dashboard() {
   return (
     <div>
-      <div className="headerr">
-        <div className="navbarr">
+      {/* <div className="headerr"> */}
+        {/* <div className="navbarr">
           <img className="logoo" src={svnitIcon} alt="Logo" />
           <div className="nav-links">
             <button className="navbar-button">Home</button>
@@ -18,8 +19,9 @@ export default function Dashboard() {
           <button className="profile-button">
             <img className="profile-img" src={svnitIcon2} alt="Profile" />
           </button>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
+      <Navbar />
       <div className="boddy">
         <div className="column1">
           <img
