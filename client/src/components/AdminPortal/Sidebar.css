@@ -1,8 +1,6 @@
 .sidebar1 {
     width: 20vw;
-    /* Example: 20% of the viewport width */
     height: 100vh;
-    /* 100% of the viewport height */
     background-color: #16253D;
     color: #fff;
     display: flex;
@@ -18,12 +16,10 @@
     justify-content: center;
     align-items: center;
     background-color: #223752;
-    /* Added background color */
 }
 
 .profile-img {
     width: 40%;
-    /* Example: 40% of the parent container's width */
     height: auto;
     border-radius: 50%;
     margin-right: 0px;
@@ -48,17 +44,19 @@
     text-decoration: none;
 }
 
-/* Change color of option div on hover */
 .option:hover {
     background-color: #fff;
         color: black;
             cursor: pointer;
-    /* Change to desired hover color */
+}
+
+.option.active {
+    background-color: #fff;
+    color: black;
 }
 
 @media (max-width: 767px) {
     .sidebar1 {
         display: none;
-        /* Hide the sidebar on smaller devices */
     }
 }

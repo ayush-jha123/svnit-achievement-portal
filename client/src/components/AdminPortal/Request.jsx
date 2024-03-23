@@ -1,5 +1,5 @@
 import React from 'react'
-import RequestBox from './RequestBox'
+import RequestBox from './Request/RequestBox'
 
 const Request = () => {
   return (
