@@ -1,11 +1,12 @@
 .RequestBox{
     display: flex;
+    margin-right: 3vw;
 }
 
 .Request {
     padding: 10px;
     width: 55vw;
-    margin-right: 5vw;
+    margin-right: 3vw;
     height: auto;
     display: flex;
     align-items: center;
@@ -42,15 +43,21 @@
     color: #666;
 }
 .Accept{
-    padding: 5px;
     width:8vw;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 1rem;
-    background-color: #fff;
+    margin-right: 1rem;
+    background-color: #D2E5F3;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .Reject {
     padding: 5px;
+    margin-bottom: 1rem;
+    width:5vw;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #D2E5F3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

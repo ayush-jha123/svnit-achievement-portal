@@ -6,6 +6,8 @@ const Request = () => {
     <div className='container2'>
         <div className='heading'>Request</div>
         <RequestBox />
+        <RequestBox />
+        <RequestBox />
     </div>
   )
 }

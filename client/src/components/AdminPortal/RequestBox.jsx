@@ -1,5 +1,8 @@
 import React from 'react'
 import './RequestBox.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import Image from "../../../public/assets/bat.jpeg"
 
 const RequestBox = () => {
   return (
