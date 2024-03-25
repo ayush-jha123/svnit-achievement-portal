@@ -1,25 +1,12 @@
 import React from 'react'
-
-import svnitIcon from '../../public/assets/Group 21.png'
-import svnitIcon2 from '../../public/assets/Ellipse 14.png'
 import svnitIcon3 from '../../public/assets/Ellipse 12.png'
 import './Dashboard.css'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
 export default function Dashboard() {
   return (
     <div>
-      <div className="headerr">
-        <div className="navbarr">
-          <img className="logoo" src={svnitIcon} alt="Logo" />
-          <div className="nav-links">
-            <button className="navbar-button">Home</button>
-            <button className="navbar-button">Achievements</button>
-            <button className="navbar-button">Opportunities</button>
-          </div>
-          <button className="profile-button">
-            <img className="profile-img" src={svnitIcon2} alt="Profile" />
-          </button>
-        </div>
-      </div>
+      <Navbar />
       <div className="boddy">
         <div className="column1">
           <img
@@ -28,19 +15,17 @@ export default function Dashboard() {
             alt=""
             style={{ width: "150px", height: "150px" }}
           />
-
           <div className="column1-text">
             <ul>
-              <li>Profile</li>
-              <li>Achievements</li>
-              <li>Projects</li>
-              <li>Experience and skills</li>
-              <li>Settings</li>
-              <li className="logout">Logout</li> {/* Add logout option */}
+              <li><Link to={"/"}>Profile</Link></li>
+              <li><Link to={"/YourAchivements"}>Achievements</Link></li>
+              <li><Link to={"/YourExperience"}>Experience</Link></li>
+              <li><Link to={"/Skills"}>Skills</Link></li>
+              <li><Link to={"/Settings"}>Settings</Link></li>
+              <li >Logout</li> {/* Add logout option */}
             </ul>
           </div>
         </div>
-
         <div className="column2">
           <div className="coll">
           <div className="firstline">
@@ -68,9 +53,9 @@ export default function Dashboard() {
             <div className="pem"> Personal Email <div>mitkumar2105@gmail.com</div></div>
             </div>
         </div>
-      </div>
 
 
+        </div>
     </div>
   )
 }
