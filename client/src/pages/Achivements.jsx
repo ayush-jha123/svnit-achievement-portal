@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import batman from '../../public/assets/bat.jpeg'
 import './Achivement.css';
-import Card from '../components/Card2';
+import CardAchievements from '../components/Card2';
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom';
 
@@ -19,15 +19,15 @@ const Achivements = () => {
       <div className="Main">
         <Sidebar />
         <div className="Cards">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
+            <CardAchievements />
         </div>
       </div>
        <div className='view'>

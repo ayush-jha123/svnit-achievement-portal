@@ -2,13 +2,13 @@ import React from 'react'
 import './Card2.css'
 import batman from '../../public/assets/bat.jpeg'
 
-const Card = () => {
+const CardAchievements = () => {
   return (
-    <div className="card">
+    <div className="card4">
         <div className="bar">
-            <div className="photo">
+            <div className="photo2">
               <img
-                className='image'
+                className='image3'
                 src={batman}
               />
             </div>
@@ -24,4 +24,4 @@ const Card = () => {
   )
 }
 
-export default Card;
+export default CardAchievements;

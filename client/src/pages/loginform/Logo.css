@@ -3,6 +3,7 @@
     padding: 0;
 }
 .Logo{
+    margin-top: 3vh;
     display: flex;
     justify-content: center;
     width: auto;
