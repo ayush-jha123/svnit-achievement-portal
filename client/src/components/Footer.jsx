@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className="footer-container">
       <div className="box1">
-        <div className="image">
+        <div className="image5">
           <img className="i" src="public\assets\logo.svg" alt="svnit" />
         </div>
         <div className="te">
