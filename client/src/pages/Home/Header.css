@@ -81,3 +81,8 @@
   margin-top: 0.5rem;
   font-style: italic;
 }
+
+p:hover{
+  /* text-decoration: none; */
+  /* color: aqua; */
+}

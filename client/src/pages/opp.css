@@ -21,6 +21,7 @@
         background-color: transparent;
         display: flex;
         justify-content: space-evenly;
+        margin-bottom: 3%;
 }
 
 .Main {
@@ -43,7 +44,7 @@
     /* flex-direction: column; */
     margin-top: -2vh;
     flex-wrap: wrap;
-    padding: 6vh;
+    /* padding: 6vh; */
 }
 
 
@@ -78,4 +79,8 @@
 
 p:hover {
     text-decoration: underline;
+}
+
+.from{
+    animation: fadezoom 1s ease-out;
 }

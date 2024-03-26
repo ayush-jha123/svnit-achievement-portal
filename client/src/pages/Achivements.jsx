@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import batman from '../../public/assets/bat.jpeg'
 import './Achivement.css';
 import Card from '../components/Card2';
 import Footer from '../components/Footer'
@@ -26,10 +27,11 @@ const Achivements = () => {
             <Card />
             <Card />
             <Card />
+            <Card />
         </div>
       </div>
        <div className='view'>
-          <Link to={"/Dashboard"}><button ><u>View more</u></button></Link>        
+          <Link to={"/"}><button ><u>View more</u></button></Link>        
         </div>
       <Footer />
       </div>

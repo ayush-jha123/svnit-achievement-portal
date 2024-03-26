@@ -18,9 +18,9 @@ const Achivements = () => {
       <div className="Main">
         <Sidebar />
         <div>
-        <div className="header">
+        <div className="head">
             <div className="from"><p>From Students</p></div>
-            <div className="from"><p>From Students</p></div>
+            <div className="from"><p>From Teachers</p></div>
           </div>
         <div className="Cards">
             <Card />
