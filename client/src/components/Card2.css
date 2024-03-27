@@ -1,4 +1,4 @@
-.card{
+.card4{
     display: flow-root;
     height: 50vh;
     width: 40vh;
@@ -28,7 +28,7 @@ span{
     font-size: 1.2rem;
 }
 
-.photo{
+.photo2{
     margin-top: -0.4rem;
     height: 5rem;
     width: 5rem;
@@ -45,7 +45,7 @@ span{
     height: 57%;
 }
 
-.image{
+.image3{
     border-radius: 2.5rem;
     border: 0.2rem solid #FFFFFF;
 }

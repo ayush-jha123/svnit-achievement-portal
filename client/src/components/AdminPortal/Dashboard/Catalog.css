@@ -1,0 +1,5 @@
+.Catalog{
+    height: 15vh;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import './Navbar.css'
 import Navbuttons from './NavBarButton/Navbuttons'
+import Navbutton from './NavBarButton/Navbutton'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar() {
@@ -14,8 +16,8 @@ export default function Navbar() {
           <div className='buttons'>
           <Navbuttons/>
           </div>
-
-          <div className='LogIn'> LogIn </div>
+          <Link to={"/Login"} style={{textDecoration:"none"}}><Navbutton title="LOG IN"/></Link>
+          {/* <div className='LogIn'> LogIn </div> */}
         </div>
     </>
   )
