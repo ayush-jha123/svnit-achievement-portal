@@ -1,5 +1,5 @@
 import React from 'react'
-import './Card1.css'
+import './Card_opp.css'
 
 const Card = () => {
   return (

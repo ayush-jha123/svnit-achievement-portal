@@ -1,6 +1,7 @@
 import './Main.css'
-import Card from '../../components/Card1.jsx';
-import CardAchievements from '../../components/Card2.jsx';
+import Card from '../../components/Card_opp.jsx';
+import CardAchievements from '../../components/Card_ach.jsx';
+import Footer from '../../components/Footer.jsx';
 
 export default function Main() {
     return (
@@ -40,9 +41,7 @@ export default function Main() {
                 </div>
                 <p className='view'>View More</p>
             </div>
-            <div className="footer">
-                    <p>.</p>
-            </div>
+            <Footer/>
         </div>
     );
 }

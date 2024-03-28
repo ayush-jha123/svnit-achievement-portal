@@ -2,7 +2,6 @@ import React from 'react'
 import svnitIcon3 from '../../public/assets/Ellipse 12.png'
 import Navbar from '../components/Navbar'
 import './Dashboard.css'
-import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 export default function Dashboard() {
   return (

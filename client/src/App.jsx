@@ -5,7 +5,6 @@ import Achivements from './pages/Achivements'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 import Opp from './pages/opp'
 import Dash from './pages/Dashboard'
-
 import Settings from './pages/DashBoard/Settings'
 import YourAchivements from './pages/DashBoard/YourAchivements'
 import Skills from './pages/DashBoard/Skills'

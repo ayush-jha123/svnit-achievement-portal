@@ -1,5 +1,5 @@
 import React from 'react'
-import './Card2.css'
+import './Card_ach.css'
 import batman from '../../public/assets/bat.jpeg'
 
 const CardAchievements = () => {

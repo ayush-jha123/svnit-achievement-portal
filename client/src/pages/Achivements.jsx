@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import batman from '../../public/assets/bat.jpeg'
 import './Achivement.css';
-import CardAchievements from '../components/Card2';
+import CardAchievements from '../components/Card_ach.jsx';
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom';
 
