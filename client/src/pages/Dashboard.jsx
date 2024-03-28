@@ -1,6 +1,7 @@
 import React from 'react'
 import svnitIcon3 from '../../public/assets/Ellipse 12.png'
 import Navbar from '../components/Navbar'
+import DashSide from './DashBoard/DashSide'
 import './Dashboard.css'
 import { Link } from 'react-router-dom'
 export default function Dashboard() {
@@ -16,16 +17,7 @@ export default function Dashboard() {
             alt=""
             style={{ width: "150px", height: "150px" }}
           />
-          <div className="column1-text">
-            <ul>
-              <li><Link to={"/"}>Profile</Link></li>
-              <li><Link to={"/YourAchivements"}>Achievements</Link></li>
-              <li><Link to={"/YourExperience"}>Experience</Link></li>
-              <li><Link to={"/Skills"}>Skills</Link></li>
-              <li><Link to={"/Settings"}>Settings</Link></li>
-              <li >Logout</li> {/* Add logout option */}
-            </ul>
-          </div>
+          <DashSide/>
         </div>
         <div className="column2">
           <div className="coll">

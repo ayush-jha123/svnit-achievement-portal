@@ -7,8 +7,9 @@ import Opp from './pages/opp'
 import Dash from './pages/Dashboard'
 import Settings from './pages/DashBoard/Settings'
 import YourAchivements from './pages/DashBoard/YourAchivements'
-import Skills from './pages/DashBoard/Skills'
-import YourExperience from './pages/DashBoard/YourExperience'
+import MyFeed from './pages/DashBoard/MyFeed'
+import YourOpp from './pages/DashBoard/YourOpp'
+import Add_Ach from './pages/DashBoard/Add_Ach'
 import AdminPortal from './pages/AdminPortal'
 import LoginForm from './pages/loginform/LoginForm'
 import Homepage from './pages/homepage/Homepage'
@@ -27,9 +28,10 @@ function App() {
           <Route path='/Dashboard' element={< Dash/>}></Route>
 
           <Route path='/YourAchivements' element={<YourAchivements/>}></Route>
-          <Route path='/Skills' element={<Skills/>}></Route>
-          <Route path='/YourExperience' element={<YourExperience/>}></Route>
+          <Route path='/MyFeed' element={<MyFeed/>}></Route>
+          <Route path='/YourOpp' element={<YourOpp/>}></Route>
           <Route path="/Settings" element={<Settings/>}></Route>
+          <Route path="/Add_Ach" element={<Add_Ach/>}></Route>
 
 
           <Route path='/Admin' element={< AdminPortal/>}></Route>

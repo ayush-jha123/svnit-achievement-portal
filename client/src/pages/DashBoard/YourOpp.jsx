@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar.jsx'
 import DashSide from './DashSide.jsx'
 
-export default function YourAchivements() {
+export default function YourOpp() {
   return (
     <>
     <Navbar />
@@ -19,7 +19,7 @@ export default function YourAchivements() {
           <div className="my-auto flex">
             <Link to={"/Add_Ach"}>
               <div className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-full shadow mr-10 cursor-pointer">
-                <span className="font-bold text-xl	">+ &nbsp; </span> Add Achievement
+                <span className="font-bold text-xl	">+ &nbsp; </span> Add Opportunities
               </div>
             </Link>
           </div>
