@@ -24,7 +24,7 @@
     font-size: 2rem;
     padding: 0px;
     background-color: transparent;
-    animation: fadeUpIn 0.7s ease-out;
+    /* animation: fadeUpIn 0.7s ease-out; */
 }
 
 .Cards {
@@ -32,7 +32,7 @@
     margin-top: -5vh;
     flex-wrap: wrap ;
     padding: 0px;
-    animation: fadeInUp 0.9s ease-out;
+    /* animation: fadeInUp 0.9s ease-out; */
 }
 
 
@@ -50,7 +50,7 @@
     padding: 2em;
     justify-content: space-between;
     /* Adjust as needed */
-    animation: fadeInUp 1s ease-out;
+    /* animation: fadeInUp 1s ease-out; */
 }
 
 /* Add padding to the sidebar */
