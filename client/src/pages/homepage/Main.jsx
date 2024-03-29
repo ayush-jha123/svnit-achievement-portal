@@ -2,6 +2,7 @@ import './Main.css'
 import Card from '../../components/Card_opp.jsx';
 import CardAchievements from '../../components/Card_ach.jsx';
 import Footer from '../../components/Footer.jsx';
+import { Link } from 'react-router-dom'
 
 export default function Main() {
     return (
@@ -31,7 +32,7 @@ export default function Main() {
                     < CardAchievements Name="Name" Achievements="Achievements"/>
                     < CardAchievements Name="Name" Achievements="Achievements"/>
                 </div>
-                <div className="ach_view">View More</div>
+                <Link to={"/Achivements"} className="ach_view" title="View More">View More</Link>
                 <div className="head2"><p style={{color : "#192a3c", fontSize : "2.3em", fontWeight : "bold"}}>Opportuinities</p>
                 <div className="table2">
                     < Card Studentname ="From Student" Developer="Developer" para="It's possible this refers to a particular writing"/>
@@ -40,7 +41,7 @@ export default function Main() {
                     < Card Studentname ="From Student" Developer="Developer" para="It's possible this refers to a particular writing"/>
                 </div>
                 </div>
-                <div className="ach_view">View More</div>
+                <Link to={"/Opportunities"} className="ach_view">View More</Link>
             </div>
             <Footer/>
         </div>

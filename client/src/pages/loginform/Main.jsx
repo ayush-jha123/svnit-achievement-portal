@@ -4,6 +4,7 @@ import React,{useState,useEffect} from 'react';
 import { useDispatch} from "react-redux";
 import { signInSuccess } from '../../redux/user/userSlice';
 import {useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function Main (){
     const [user,setUser]=useState([]); 
@@ -35,7 +36,7 @@ export default function Main (){
             <div className="content-1">
                 <h2 style = {{color : "#1e2530", padding : "10px", fontSize : "2em", position :"relative", zIndex : "1"} }>Achievement Portal</h2>
                 <h4 style = {{color : "#1e2530", padding : "10px", fontSize : "2em", position :"relative", zIndex : "1"}}>Login</h4>
-                <h4 style= {{position: "absolute", left : "10px", fontSize : "1.5em", color : "#1e2530", bottom : "0px", zIndex : "1"}}>HOME</h4>
+                <Link to={"/"} style= {{position: "absolute", left : "10px", fontSize : "1.5em", color : "#1e2530", bottom : "0px", zIndex : "1"}}>HOME</Link>
                 <img src="./assets/forgot.png" alt="" className='image' />
             </div>
             <div className="content-2">

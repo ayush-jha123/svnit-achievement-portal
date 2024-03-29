@@ -6,11 +6,11 @@ export default function DashSide() {
     <>
     <div className="column1-text">
             <ul>
-              <li><Link to={"/Dashboard"}>Profile</Link></li>
-              <li><Link to={"/YourAchivements"}>Achievements</Link></li>
-              <li><Link to={"/YourOpp"}>Opportunities</Link></li>
-              <li><Link to={"/MyFeed"}>My Feed</Link></li>
-              {/* <li><Link to={"/Settings"}>Settings</Link></li> */}
+              <Link to={"/Dashboard"}><li>Profile</li></Link>
+              <Link to={"/YourAchivements"}><li>Achievements</li></Link>
+              <Link to={"/YourOpp"}><li>Opportunities</li></Link>
+              <Link to={"/MyFeed"}><li>My Feed</li></Link>
+              {/* <Link to={"/Settings"}><li>Settings</li></Link> */}
               <li >Logout</li> {/* Add logout option */}
             </ul>
           </div>
