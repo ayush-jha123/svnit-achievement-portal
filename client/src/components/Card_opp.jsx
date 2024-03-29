@@ -5,10 +5,14 @@ const Card = () => {
   return (
     <div className='card1'>
         <h1 className='Dev'>
-            Developer
+            Title (Developer)
         </h1>
         <p className='opp'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
+        </p>
+        <br />
+        <p className='opp'>
+            email
         </p>
           <button className='explore'>
             Explore

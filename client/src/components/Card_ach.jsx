@@ -12,7 +12,7 @@ const CardAchievements = () => {
                 src={batman}
               />
             </div>
-            <span>2nd Year ECE</span>
+            <span>Title</span>
         </div>
         <div className="card_info">
             <p id='font'><b>Name: </b>Vivek Lal</p>

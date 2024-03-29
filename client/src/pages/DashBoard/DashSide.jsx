@@ -10,7 +10,7 @@ export default function DashSide() {
               <li><Link to={"/YourAchivements"}>Achievements</Link></li>
               <li><Link to={"/YourOpp"}>Opportunities</Link></li>
               <li><Link to={"/MyFeed"}>My Feed</Link></li>
-              <li><Link to={"/Settings"}>Settings</Link></li>
+              {/* <li><Link to={"/Settings"}>Settings</Link></li> */}
               <li >Logout</li> {/* Add logout option */}
             </ul>
           </div>
