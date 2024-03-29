@@ -1,5 +1,35 @@
 import './Main.css'
+import {sanity} from '../../sanity';
+import React,{useState,useEffect} from 'react';
+import { useDispatch} from "react-redux";
+import { signInSuccess } from '../../redux/user/userSlice';
+import {useNavigate} from 'react-router-dom';
+
 export default function Main (){
+    const [user,setUser]=useState([]); 
+    const [formData,setFormData]=useState({userid:'',password:''});
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+     useEffect(() => {
+        const skillsQuery='*[_type=="user"]';
+        sanity.fetch(skillsQuery).then((data)=>{
+         setUser(data);
+        })
+       }, [])
+    console.log(user);
+    
+    const handleChange=(e)=>{
+        setFormData({...formData,[e.target.name]:e.target.value})
+    }
+    
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+       const data=user.find((u)=>(u.userid==formData.userid && u.password==formData.password) && u );
+       console.log(data);
+       dispatch(signInSuccess(data));
+       navigate('/Dashboard');
+    }
+
     return(
         <div className="main">
             <div className="content-1">
@@ -13,12 +43,12 @@ export default function Main (){
                 </div>
                 <div className='INPUT'>
                     <div className="input-box">
-                    <input type="text" placeholder='Email or User Id:' className='email'/>
-                    <input type="text" placeholder='Password' className='password' />
+                    <input type="text" name='userid' onChange={handleChange} placeholder='Email or User Id:' className='email'/>
+                    <input type="text" name='password' onChange={handleChange} placeholder='Password' className='password' />
                     </div> 
                 </div>
                 <div className="signin">
-                    <button className='sign'>Sign In</button>
+                    <button onClick={handleSubmit} className='sign'>Sign In</button>
                 </div>
             </div>
         </div>
