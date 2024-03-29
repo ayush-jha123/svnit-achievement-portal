@@ -3,11 +3,20 @@ import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import './opp.css';
 import Card from '../components/Card_opp';
+import { useState,useEffect } from 'react';
 import Footer from '../components/Footer'
+import {sanity} from '../sanity';
 
 const Achivements = () => {
 
-
+  const [oppertunity,setOppertunity]=useState({});
+        useEffect(() => {
+          const skillsQuery='*[_type=="achievements"]';
+          sanity.fetch(skillsQuery).then((data)=>{
+           setOppertunity(data);
+          })
+         }, [])
+       console.log(oppertunity);
   return (
     <div>
       <Navbar />
