@@ -13,8 +13,8 @@ import Add_Ach from './pages/DashBoard/Add_Ach'
 import AdminPortal from './pages/AdminPortal'
 import LoginForm from './pages/loginform/LoginForm'
 import Homepage from './pages/homepage/Homepage'
-
-
+import carddetails from './components/carddetails'
+import Add_Opp from './pages/DashBoard/Add_Opp';
 
 function App() {
   return (
@@ -32,6 +32,8 @@ function App() {
           <Route path='/YourOpp' element={<YourOpp/>}></Route>
           <Route path="/Settings" element={<Settings/>}></Route>
           <Route path="/Add_Ach" element={<Add_Ach/>}></Route>
+          <Route path="/Add_Opp" element={<Add_Opp/>}></Route>
+          <Route path="/card_details" element={<carddetails/>}></Route>
 
 
           <Route path='/Admin' element={< AdminPortal/>}></Route>
