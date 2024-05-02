@@ -44,7 +44,7 @@ const CardAchievements = (achievement) => {
                 src={batman}
               />
             </div>
-            <Link to={"/card_details"}>
+            <Link to={"/Ach_card_details"}>
             <span>{achievement.title}</span> 
             </Link>
         </div>

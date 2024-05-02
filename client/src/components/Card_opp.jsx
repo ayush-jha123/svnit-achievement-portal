@@ -1,5 +1,6 @@
 import React from 'react'
 import './Card_opp.css'
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -14,9 +15,11 @@ const Card = () => {
         <p className='opp'>
             email
         </p>
+        <Link to={"/Opp_card_details"}>
           <button className='explore'>
             Explore
           </button>
+          </Link>
     </div>
   )
 }
