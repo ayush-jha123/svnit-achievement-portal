@@ -9,6 +9,11 @@ export default{
             type:'string'
         },
         {
+            name:'postedby',
+            title:'PostedBy',
+            type:'string'
+        },
+        {
             name:'body',
             title:'RecognizingBodyName',
             type:'string'
@@ -27,6 +32,12 @@ export default{
             name:'accredation',
             title:'Accredation',
             type:'file'
+        },
+        {
+          name: 'like',
+          title: 'Like',
+          type:'array',
+         of:[{ type:'string'}]
         },
         {
             name:'imageurl',

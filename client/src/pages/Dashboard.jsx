@@ -9,7 +9,6 @@ import { urlFor } from "../sanity";
 export default function Dashboard() {
   const [credentials, setCredentials] = useState({});
   const data = useSelector((state) => state.user);
-  console.log(data);
 
   useEffect(() => {
     setCredentials(data.currentUser);
@@ -18,7 +17,7 @@ export default function Dashboard() {
   return (
     <div>
       <Navbar />
-      {credentials && (
+      {credentials?(
         <div className="boddy">
           <div className="column1">
             <img
@@ -61,7 +60,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      )}
+      ):<div>Please Login to see your DashBoard</div>}
     </div>
   );
 }
