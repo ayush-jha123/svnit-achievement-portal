@@ -12,13 +12,11 @@ import { useState, useEffect } from "react";
 const Achivements = () => {
   const [achievements, setAchievements] = useState([]);
   useEffect(() => {
-    const skillsQuery = '*[_type=="achievements"]';
+    const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
       setAchievements(data);
     });
   }, []);
-  console.log("bro");
-  console.log(achievements);
   return (
     <div>
       <Navbar />

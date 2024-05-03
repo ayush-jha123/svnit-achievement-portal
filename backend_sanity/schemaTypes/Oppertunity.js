@@ -1,6 +1,6 @@
 export default{
-    name:'oppertunity',
-    title:'Oppertunity',
+    name:'oppertunities',
+    title:'Oppertunities',
     type:'document',
     fields:[
         {
@@ -19,6 +19,21 @@ export default{
             type:'string'
         },
         {
+            name:'userid',
+            title:'UserId',
+            type:'string'
+        },
+        {
+            name:'applylink',
+            title:'ApplyLink',
+            type:'string'
+        },
+        {
+            name:'postedby',
+            title:'PostedBy',
+            type:'string'
+        },
+        {
             name:'openingdate',
             title:'OpeningDate(dd-mm-yyyy)',
             type:'string'
@@ -27,19 +42,6 @@ export default{
             name:'closingdate',
             title:'ClosingDate(dd-mm-yyyy)',
             type:'string'
-        },
-        {
-            name:'details',
-            title:'FileForDetails',
-            type:'file'
-        },
-        {
-            name:'imageurl',
-            title:'RelatedImages',
-            type:'image',
-            options:{
-                hotspot:true
-            }
-        },
+        }
     ]
 }

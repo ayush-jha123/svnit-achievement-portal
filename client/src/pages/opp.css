@@ -45,6 +45,8 @@
     margin-top: -2vh;
     flex-wrap: wrap;
     /* padding: 6vh; */
+    gap: 20px;
+    margin-left: 20px;
 }
 
 
