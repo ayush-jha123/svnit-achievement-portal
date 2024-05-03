@@ -1,27 +1,101 @@
-import React from 'react'
-import './Card_opp.css'
-import { Link } from "react-router-dom";
+// import React from 'react'
+// import './Card_opp.css'
+// import { Link } from "react-router-dom";
 
-const Card = () => {
+// const Card = (oppertunity) => {
+//   console.log(oppertunity)
+//   return (
+//     <div className='card1'>
+//         <h1 className='Dev'>
+//            {oppertunity.title}
+//         </h1>
+//         <p className='opp'>
+//             PostedBy:{oppertunity.postedby}
+//         </p>
+//         <p className='opp'>
+//             {oppertunity.description}
+//         </p>
+//         <br />
+//         <b>Dates:</b>
+//         <p className='opp'>
+//             {oppertunity.openingdate} : {oppertunity.closingdate}
+//         </p>
+//         <p className='opp'>
+//             {oppertunity.applylink}
+//         </p>
+//         <Link to={"/Opp_card_details"}>
+//           <button className='explore'>
+//             Explore
+//           </button>
+//           </Link>
+//     </div>
+//   )
+// }
+
+// export default Card
+
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+ 
+export default function CardItem(oppertunity) {
   return (
-    <div className='card1'>
-        <h1 className='Dev'>
-            Title (Developer)
-        </h1>
-        <p className='opp'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
-        </p>
-        <br />
-        <p className='opp'>
-            email
-        </p>
-        <Link to={"/Opp_card_details"}>
-          <button className='explore'>
-            Explore
-          </button>
-          </Link>
-    </div>
-  )
+    <Card className="mt-6 w-96 shadow-md rounded-md bg-slate-100 p-2">
+      <CardBody>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="mb-4 h-12 w-12 text-gray-900"
+        >
+          <path
+            fillRule="evenodd"
+            d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
+            clipRule="evenodd"
+          />
+          <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
+        </svg>
+        <Typography variant="h5" color="blue-gray" className="mb-2">
+          {oppertunity.title}
+        </Typography>
+        <Typography>
+          <b>For Whom:</b> {oppertunity.participants}
+        </Typography>
+        <Typography>
+        <b>Apply Link:</b> {oppertunity.applylink}
+        </Typography>
+        <Typography>
+        <b>Date:</b> {oppertunity.openingdate} : {oppertunity.closingdate}
+        </Typography>
+        <Typography>
+          {oppertunity.description}
+        </Typography>
+      </CardBody>
+      <CardFooter className="pt-0">
+        <a href="#" className="inline-block">
+          <Button size="sm" variant="text" className="flex items-center gap-2">
+            Learn More
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-4 w-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </Button>
+        </a>
+      </CardFooter>
+    </Card>
+  );
 }
-
-export default Card

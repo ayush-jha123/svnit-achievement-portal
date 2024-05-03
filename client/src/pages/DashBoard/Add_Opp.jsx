@@ -15,20 +15,20 @@ export default function Add_Ach() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const achieve = {
-      _type: "achievements",
+      _type: "oppertunities",
       postedby:user.currentUser.name,
       title: formData.title,
-      body: formData.body,
+      participants: formData.participants,
       description: formData.description,
-      date: formData.date,
-      accredation: formData.accredation,
-      imageurl: formData.imageurl,
+      applylink: formData.applylink,
+      openingdate: formData.openingdate,
+      closingdate: formData.closingdate,
     };
 
     sanity
       .create(achieve )
       .then(() => {
-        navigate('/Achivements', { replace: true })
+        navigate('/Opportunities', { replace: true })
       })
       .catch((err) => console.log(err));
     
@@ -53,6 +53,22 @@ export default function Add_Ach() {
                     <input
                       type="text"
                       name="title"
+                      id="achievementTitle"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="achievementTitle"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      ForWhom
+                    </label>
+                    <input
+                      type="text"
+                      name="participants"
                       id="achievementTitle"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       onChange={handleChange}
@@ -85,11 +101,27 @@ export default function Add_Ach() {
                       htmlFor="Date"
                       className="block text-sm font-medium text-gray-700"
                     >
+                      Opening date/Tenure
+                    </label>
+                    <input
+                      type="date"
+                      name="openingdate"
+                      id="Date"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="Date"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       End date/Tenure
                     </label>
                     <input
                       type="date"
-                      name="date"
+                      name="closingdate"
                       id="Date"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       onChange={handleChange}
@@ -98,11 +130,11 @@ export default function Add_Ach() {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
-                      Email
+                      Apply Link
                     </label>
                      <input
                          type="email"
-                         name="email"
+                         name="applylink"
                          id="Email"
                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                          onChange={handleChange}

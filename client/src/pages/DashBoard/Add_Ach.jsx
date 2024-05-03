@@ -15,7 +15,7 @@ export default function Add_Ach() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const achieve = {
-      _type: "achievements",
+      _type: "achievement",
       postedby:user.currentUser.name,
       title: formData.title,
       body: formData.body,

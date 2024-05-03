@@ -1,6 +1,6 @@
 export default{
-    name:'achievements',
-    title:'Achievements',
+    name:'achievement',
+    title:'Achievement',
     type:'document',
     fields:[
         {
@@ -11,6 +11,11 @@ export default{
         {
             name:'postedby',
             title:'PostedBy',
+            type:'string'
+        },
+        {
+            name:'userid',
+            title:'UserId',
             type:'string'
         },
         {

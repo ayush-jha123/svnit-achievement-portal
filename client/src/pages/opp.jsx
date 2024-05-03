@@ -9,9 +9,9 @@ import {sanity} from '../sanity';
 
 const Achivements = () => {
 
-  const [oppertunity,setOppertunity]=useState({});
+  const [oppertunity,setOppertunity]=useState([]);
         useEffect(() => {
-          const skillsQuery='*[_type=="achievements"]';
+          const skillsQuery='*[_type=="oppertunities"]';
           sanity.fetch(skillsQuery).then((data)=>{
            setOppertunity(data);
           })
@@ -27,17 +27,18 @@ const Achivements = () => {
       <div className="Main">
         <Sidebar />
         <div>
-        <div className="head">
+        {/* <div className="head">
             <div className="from"><p>From Students</p></div>
             <div className="from"><p>From Teachers</p></div>
-          </div>
+          </div> */}
+
+        
         <div className="Cards">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {oppertunity.map((oppertunity) => (
+              <div className=''>
+                <Card key={oppertunity._id} {...oppertunity} />
+              </div>
+            ))}
         </div>
         </div>
       </div>
