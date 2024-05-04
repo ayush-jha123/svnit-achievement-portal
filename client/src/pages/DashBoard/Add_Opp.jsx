@@ -17,6 +17,7 @@ export default function Add_Ach() {
     const achieve = {
       _type: "oppertunities",
       postedby:user.currentUser.name,
+      userid:user.currentUser.userid,
       title: formData.title,
       participants: formData.participants,
       description: formData.description,
