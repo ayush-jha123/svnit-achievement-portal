@@ -41,6 +41,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
  
 export default function CardItem(oppertunity) {
   return (
@@ -76,7 +77,7 @@ export default function CardItem(oppertunity) {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <a href="#" className="inline-block">
+        <Link to={"/Opp_card_details"}>
           <Button size="sm" variant="text" className="flex items-center gap-2">
             Learn More
             <svg
@@ -94,7 +95,7 @@ export default function CardItem(oppertunity) {
               />
             </svg>
           </Button>
-        </a>
+        </Link>
       </CardFooter>
     </Card>
   );
