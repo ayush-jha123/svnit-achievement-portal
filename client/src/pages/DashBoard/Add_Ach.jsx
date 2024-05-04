@@ -17,6 +17,7 @@ export default function Add_Ach() {
     const achieve = {
       _type: "achievement",
       postedby:user.currentUser.name,
+      userid:user.currentUser.userid,
       title: formData.title,
       body: formData.body,
       description: formData.description,

@@ -1,20 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Card_ach.css'
 import batman from '../../public/assets/bat.jpeg';
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { AiFillLike } from "react-icons/ai";
 import { sanity } from '../sanity';
 
 const CardAchievements = (achievement) => {
-  console.log(achievement);
+  // console.log('bre1');
+  // console.log(achievement);
+  const [likeToggle,setLikeToggle]=useState(false);
   const {currentUser}=useSelector(state=>state.user)
   
   const handlelike=()=>{
-  const updateQuery = `*[_id == "${achievement._id}"]`;
+  const updateQuery = achievement._id;
+  let newLikeArray = [];
+  if (Array.isArray(achievement.like)) {
+    if (likeToggle) {
+      newLikeArray = achievement.like.filter(userId => userId !== currentUser._id); // Remove current user ID
+    } else {
+      newLikeArray = [...achievement.like, currentUser._id]; // Add current user ID
+    }
+  } else {
+    // If achievement.like is not an array, create a new array with or without the current user ID based on likeToggle
+    newLikeArray = likeToggle ? [] : [currentUser._id];
+  }
+  
   sanity.patch(updateQuery)
-    .set({like:[...achievement.like,currentUser._id]})
+    .set({like:newLikeArray})
     .commit()
     .then((response) => {
       console.log('Achievement updated successfully:', response);
@@ -22,14 +37,18 @@ const CardAchievements = (achievement) => {
     .catch((error) => {
       console.error('Error updating achievement:', error);
     });
+
+    setLikeToggle(!likeToggle);
   }
 
 
   const handledelete=()=>{
-    const deleteQuery = `*[_id == "${achievement._id}"]`;
+    // const deleteQuery = `*[_id == "${achievement._id}"]`;
+    const deleteQuery = achievement._id;
     sanity.delete(deleteQuery)
     .then((response) => {
       console.log('Achievement deleted successfully:', response);
+      onDelete(achievement._id)
     })
     .catch((error) => {
       console.error('Error deleting achievement:', error);
@@ -57,10 +76,10 @@ const CardAchievements = (achievement) => {
         {/* <a id='view'>View more</a> */}
         <div className='flex justify-between'>
         <button onClick={handlelike}>
-        <AiOutlineLike />
+        {likeToggle?<AiFillLike />:<AiOutlineLike />}
         </button>  
         <button onClick={handledelete}>
-        <MdDelete />
+        {currentUser.userid===achievement.userid?<MdDelete />:''}
         </button>
         </div>
     </div>
