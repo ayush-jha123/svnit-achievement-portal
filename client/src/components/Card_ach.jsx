@@ -79,7 +79,7 @@ const CardAchievements = (achievement) => {
         {likeToggle?<AiFillLike />:<AiOutlineLike />}
         </button>  
         <button onClick={handledelete}>
-        <MdDelete />
+        {currentUser.userid===achievement.userid?<MdDelete />:''}
         </button>
         </div>
     </div>
