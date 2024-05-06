@@ -11,6 +11,7 @@ export default function MyFeed() {
   const user = useSelector(state => state.user);
   const [achievements, setAchievements] = useState([]);
   const [filteredAchievements, setFilteredAchievements] = useState([]);
+  const [filteredOppertunities, setFilteredOppertunities] = useState([]);
   const [opportunities, setOpportunities] = useState([]);
 
   useEffect(() => {
@@ -19,10 +20,10 @@ export default function MyFeed() {
       setAchievements([...data]);
     });
   }, []);
-  console.log('bre');
-  console.log(achievements);
+  // console.log('bre');
+  // console.log(opportunities);
   useEffect(() => {
-    const skillsQuery = '*[_type=="opportunities"]';
+    const skillsQuery = '*[_type=="oppertunities"]';
     sanity.fetch(skillsQuery).then((data) => {
       setOpportunities(data);
     });
@@ -32,12 +33,16 @@ export default function MyFeed() {
     setFilteredAchievements(achievements.filter((achievement)=>achievement.userid===user.currentUser.userid));
   }, [achievements])
   
+  useEffect(() => {
+    setFilteredOppertunities(opportunities.filter((oppertunity)=>oppertunity.userid===user.currentUser.userid));
+  }, [opportunities])
+  
 
-  const filteredOpportunities = useMemo(() => {
-    return opportunities.filter(
-      (opportunity) => opportunity.userid === user.currentUser.userId
-    );
-  }, [opportunities]);
+  // const filteredOpportunities = useMemo(() => {
+  //   return opportunities.filter(
+  //     (opportunity) => opportunity.userid === user.currentUser.userId
+  //   );
+  // }, [opportunities]);
  
   // const handleDelete=(id)=>{
   //   setAchievements(prevAchievements => prevAchievements.filter(achievement => achievement._id !== id));
@@ -54,7 +59,7 @@ export default function MyFeed() {
             <CardAchievements key={achievement._id} {...achievement} />
           ))}
           <h>Opportunities</h>
-          {filteredOpportunities.map((opportunity) => (
+          {filteredOppertunities.map((opportunity) => (
             <div className=''>
               <Card key={opportunity._id} {...opportunity} />
             </div>

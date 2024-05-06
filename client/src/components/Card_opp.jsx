@@ -44,6 +44,8 @@ import {
 import { Link } from "react-router-dom";
  
 export default function CardItem(oppertunity) {
+  console.log('oppn')
+  console.log(oppertunity)
   return (
     <Card className="mt-6 w-96 shadow-md rounded-md bg-slate-100 p-2">
       <CardBody>

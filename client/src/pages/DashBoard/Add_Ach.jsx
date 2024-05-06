@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const user=useSelector(state=>state.user)
-  console.log(user.currentUser.name)
-  const navigate=useNavigate();
+  const user = useSelector((state) => state.user);
+  console.log(user.currentUser.name);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -16,23 +16,23 @@ export default function Add_Ach() {
     e.preventDefault();
     const achieve = {
       _type: "achievement",
-      postedby:user.currentUser.name,
-      userid:user.currentUser.userid,
+      postedby: user.currentUser.name,
+      userid: user.currentUser.userid,
       title: formData.title,
       body: formData.body,
       description: formData.description,
       date: formData.date,
       accredation: formData.accredation,
       imageurl: formData.imageurl,
+      tags:formData.tags
     };
 
     sanity
-      .create(achieve )
+      .create(achieve)
       .then(() => {
-        navigate('/Achivements', { replace: true })
+        navigate("/Achivements", { replace: true });
       })
       .catch((err) => console.log(err));
-    
   };
 
   return (
@@ -87,39 +87,58 @@ export default function Add_Ach() {
                     </div>
                   </div>
                   {/* document input end here */}
-                  <div className="col-span-6 sm:col-span-3">
+                  <div>
                     <label
-                      htmlFor="achievementTitle"
-                      className="block text-sm font-medium text-gray-700"
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Achievement Title
                     </label>
                     <input
                       type="text"
                       name="title"
-                      id="achievementTitle"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="institute"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Recognizing Institute
-                    </label>
-                    <input
-                      type="text"
-                      name="body"
-                      id="institute"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Achievement Title"
                       onChange={handleChange}
                     />
                   </div>
 
                   <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Recognizing Body
+                    </label>
+                    <input
+                      type="text"
+                      name="body"
+                      id="body"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Recognizing Body"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Tags
+                    </label>
+                    <input
+                      type="text"
+                      name="tags"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Tags(write comma seperated tags)"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  {/* <div>
                     <label
                       htmlFor="Description"
                       className="block text-sm font-medium text-gray-700"
@@ -138,6 +157,22 @@ export default function Add_Ach() {
                         onChange={handleChange}
                       />
                     </div>
+                  </div> */}
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Description
+                    </label>
+                    <input
+                      type="text"
+                      name="description"
+                      id="body"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Write description within 100 words"
+                      onChange={handleChange}
+                    />
                   </div>
                   {/*Date input */}
                   <div className="col-span-6 sm:col-span-3">
@@ -200,7 +235,7 @@ export default function Add_Ach() {
                   </div>
                   {/* document input ends */}
                 </div>
-
+                <div></div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
                     type="submit"

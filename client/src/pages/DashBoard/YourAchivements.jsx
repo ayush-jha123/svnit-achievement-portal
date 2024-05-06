@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar.jsx'
 import DashSide from './DashSide.jsx'
+import { sanity } from '../../sanity.js';
+import { useSelector } from 'react-redux';
+import CardAchievements from '../../components/Card_ach.jsx';
 
 export default function YourAchivements() {
+  const user = useSelector(state => state.user);
+  const [achievements, setAchievements] = useState([]);
+  const [filteredAchievements, setFilteredAchievements] = useState([]);
+
+  useEffect(() => {
+    const skillsQuery = '*[_type=="achievement"]';
+    sanity.fetch(skillsQuery).then((data) => {
+      setAchievements([...data]);
+    });
+  }, []);
+
+  useEffect(() => {
+    setFilteredAchievements(achievements.filter((achievement)=>achievement.userid===user.currentUser.userid));
+  }, [achievements])
   return (
     <>
     <Navbar />
@@ -23,6 +40,11 @@ export default function YourAchivements() {
               </div>
             </Link>
           </div>
+        </div>
+        <div>
+        {filteredAchievements.map((achievement) => (
+            <CardAchievements key={achievement._id} {...achievement} />
+          ))}
         </div>
       </div>
     </div>

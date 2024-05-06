@@ -34,6 +34,11 @@ export default{
             type:'string'
         },
         {
+          name: 'tags',
+          title: 'Tags',
+          type:'string'
+        },
+        {
             name:'openingdate',
             title:'OpeningDate(dd-mm-yyyy)',
             type:'string'

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AiFillLike } from "react-icons/ai";
 import { sanity } from '../sanity';
+import { Typography } from '@material-tailwind/react';
 
 const CardAchievements = (achievement) => {
   // console.log('bre1');
