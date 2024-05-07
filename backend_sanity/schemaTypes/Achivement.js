@@ -45,6 +45,11 @@ export default{
          of:[{ type:'string'}]
         },
         {
+          name: 'tags',
+          title: 'Tags',
+          type:'string'
+        },
+        {
             name:'imageurl',
             title:'RelatedImages',
             type:'image',
