@@ -6,7 +6,7 @@ const Sidebar = () => {
     <div className="sidebar">
         <ul id="list">
             <li><span>Academics</span></li>
-            <li><span>Extra Cirriculum</span></li>
+            <li><span>Extracurricular</span></li>
             <li><span>Placement</span></li>
             <li><span>Start Up</span></li>
             <li><span>All</span></li>

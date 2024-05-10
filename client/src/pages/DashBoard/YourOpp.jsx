@@ -20,13 +20,13 @@ export default function YourOpp() {
   useEffect(() => {
     setFilteredOppertunities(
       opportunities.filter(
-        (oppertunity) => oppertunity.userid === user.currentUser.userid
+        (oppertunity) => oppertunity.userid === user.currentUser._id
       )
     );
   }, [opportunities]);
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="grid grid-flow-col h-screen grid-cols-auto">
         <DashSide />
         <div className="flex-col mt-20 col-span-3">

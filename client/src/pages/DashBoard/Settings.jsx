@@ -6,7 +6,7 @@ import DashSide from './DashSide.jsx'
 export default function Settings() {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <div className="grid grid-flow-col h-screen grid-cols-auto">
     <DashSide/>
       <div className="flex-col mt-20 col-span-3">

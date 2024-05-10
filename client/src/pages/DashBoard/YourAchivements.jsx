@@ -19,11 +19,11 @@ export default function YourAchivements() {
   }, []);
 
   useEffect(() => {
-    setFilteredAchievements(achievements.filter((achievement)=>achievement.userid===user.currentUser.userid));
+    setFilteredAchievements(achievements.filter((achievement)=>achievement.userid===user.currentUser._id));
   }, [achievements])
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <div className="grid grid-flow-col h-screen grid-cols-auto">
     <DashSide/>
       <div className="flex-col mt-20 col-span-3">

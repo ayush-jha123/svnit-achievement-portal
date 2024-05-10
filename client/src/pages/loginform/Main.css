@@ -16,6 +16,8 @@
     width: 100vw;
     height: 70vh;
     box-sizing: border-box;
+    justify-content: center;
+    margin-top: 40px;
 }
 .content-1{
     position: relative;

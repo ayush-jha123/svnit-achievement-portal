@@ -19,7 +19,7 @@ const Achivements = () => {
   }, []);
   return (
     <div>
-      <Navbar />
+      
       <div className="container">
         <div className="header">
           <h1>Achivement</h1>

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
   const user = useSelector((state) => state.user);
-  console.log(user.currentUser.name);
+  console.log(user.currentUser);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,8 +16,8 @@ export default function Add_Ach() {
     e.preventDefault();
     const achieve = {
       _type: "achievement",
-      postedby: user.currentUser.name,
-      userid: user.currentUser.userid,
+      postedby: user?.currentUser.name,
+      userid: user?.currentUser._id,
       title: formData.title,
       body: formData.body,
       description: formData.description,
@@ -26,7 +26,7 @@ export default function Add_Ach() {
       imageurl: formData.imageurl,
       tags:formData.tags
     };
-
+    console.log(achieve)
     sanity
       .create(achieve)
       .then(() => {
@@ -37,7 +37,7 @@ export default function Add_Ach() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <div className="md:grid md:grid-cols-3 md:gap-6" id="addAcv">
           <div className="mt-5 md:col-span-2 md:mt-0">
