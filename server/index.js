@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import dotenv from "dotenv";
+dotenv.config()
 
 const app = express();
 app.use(cors());
@@ -12,8 +13,8 @@ app.get("/", (req, res) => {
   res.json("Hello from nodeJs Server");
 });
 
+
 const PORT = process.env.PORT || 6000;
-// const url='mongodb://127.0.0.1:27017';
 const url = process.env.MONGO;
 
 mongoose
@@ -21,4 +22,4 @@ mongoose
   .then(() =>
     app.listen(PORT, () => console.log(`App is running at port ${PORT}`))
   )
-  .catch((err) => console.log(err.message()));
+  .catch((err) => console.log(err.message));

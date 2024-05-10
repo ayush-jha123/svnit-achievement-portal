@@ -16,12 +16,13 @@ import Homepage from './pages/homepage/Homepage'
 import AchDetails from './components/Ach_card_details'
 import OppDetails from './components/Opp_card_details'
 import Add_Opp from './pages/DashBoard/Add_Opp';
+import SignIn from './pages/loginform/SignIn'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <BrowserRouter>
-    <>
-    
+     <Navbar/>
         <Routes>
           <Route path='/' element={<Homepage />}></Route>
           <Route path='/Achivements' element={<Achivements />}></Route>
@@ -40,9 +41,8 @@ function App() {
 
           <Route path='/Admin' element={< AdminPortal/>}></Route>
           <Route path='/Login' element={< LoginForm/>}></Route>
-
+          <Route path='/Login/signin' element={< SignIn/>}></Route>
         </Routes>
-    </>
     </BrowserRouter>
   )
 }

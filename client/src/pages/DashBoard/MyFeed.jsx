@@ -50,7 +50,7 @@ export default function MyFeed() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="grid grid-flow-col h-screen grid-cols-auto w-472 mt-37" style={{ width: '500px' }}>
         <DashSide />
         <div className="flex text-lg flex-col">

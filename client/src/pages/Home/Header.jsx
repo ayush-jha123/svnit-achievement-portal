@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <>
         <div className='navbar'>
-        <Navbar/>
+        {/* <Navbar/> */}
         </div>
         <div className="header">
             <div className="header-title">

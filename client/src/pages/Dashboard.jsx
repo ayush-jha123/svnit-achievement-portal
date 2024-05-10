@@ -8,15 +8,15 @@ import { useSelector } from "react-redux";
 import { urlFor } from "../sanity";
 export default function Dashboard() {
   const [credentials, setCredentials] = useState({});
-  const data = useSelector((state) => state.user);
-
+  const {currentUser} = useSelector((state) => state.user);
+  console.log(currentUser)
   useEffect(() => {
-    setCredentials(data.currentUser);
-  }, [data]);
+    setCredentials(currentUser);
+  }, [currentUser]);
  
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       {credentials?(
         <div className="boddy">
           <div className="column1">
@@ -55,7 +55,7 @@ export default function Dashboard() {
             <div className="fifthline">
               <div className="pem">
                 {" "}
-                Personal Email <div>{credentials.emailid}</div>
+                Personal Email <div>{credentials.email}</div>
               </div>
             </div>
           </div>

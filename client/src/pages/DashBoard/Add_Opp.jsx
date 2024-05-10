@@ -17,7 +17,7 @@ export default function Add_Ach() {
     const achieve = {
       _type: "oppertunities",
       postedby:user.currentUser.name,
-      userid:user.currentUser.userid,
+      userid:user.currentUser._id,
       title: formData.title,
       participants: formData.participants,
       description: formData.description,
@@ -37,66 +37,64 @@ export default function Add_Ach() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <div className="md:grid md:grid-cols-3 md:gap-6" id="addAcv">
           <div className="mt-5 md:col-span-2 md:mt-0">
             <form>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-                  <div className="col-span-6 sm:col-span-3">
+                   <div>
                     <label
-                      htmlFor="achievementTitle"
-                      className="block text-sm font-medium text-gray-700"
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Opportunities Title
+                      Oppertunity Title
                     </label>
                     <input
                       type="text"
                       name="title"
-                      id="achievementTitle"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      id="title"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Achievement Title"
                       onChange={handleChange}
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-3">
+                   <div>
                     <label
-                      htmlFor="achievementTitle"
-                      className="block text-sm font-medium text-gray-700"
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      ForWhom
+                      For Whom
                     </label>
                     <input
                       type="text"
                       name="participants"
-                      id="achievementTitle"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      id="participants"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Achievement Title"
                       onChange={handleChange}
                     />
                   </div>
 
                   <div>
                     <label
-                      htmlFor="Description"
-                      className="block text-sm font-medium text-gray-700"
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Description
+                     Description
                     </label>
-                    <p className="mt-2 text-sm text-gray-500">
-                      (Write a description about your opportunities)
-                    </p>
-                    <div className="mt-1">
-                      <textarea
-                        id="Description"
-                        name="description"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        placeholder=""
-                        onChange={handleChange}
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      name="description"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Achievement Title"
+                      onChange={handleChange}
+                    />
                   </div>
-                  {/*Date input */}
+
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="Date"
@@ -118,7 +116,7 @@ export default function Add_Ach() {
                       htmlFor="Date"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      End date/Tenure
+                      Closing Date
                     </label>
                     <input
                       type="date"
@@ -128,18 +126,21 @@ export default function Add_Ach() {
                       onChange={handleChange}
                     />
                   </div>
-
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
                       Apply Link
                     </label>
-                     <input
-                         type="email"
-                         name="applylink"
-                         id="Email"
-                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                         onChange={handleChange}
-                     />
+                    <input
+                      type="text"
+                      name="applylink"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Achievement Title"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 

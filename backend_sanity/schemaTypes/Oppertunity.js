@@ -29,6 +29,12 @@ export default{
             type:'string'
         },
         {
+          name: 'like',
+          title: 'Like',
+          type:'array',
+         of:[{ type:'string'}]
+        },
+        {
             name:'postedby',
             title:'PostedBy',
             type:'string'

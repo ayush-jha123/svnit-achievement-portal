@@ -3,7 +3,7 @@ import Main from './Main.jsx'
 export default function Homepage(){
     return(
         <div className='wrap'>
-                <Navbar /> 
+                {/* <Navbar />  */}
                 <Main />
         </div>
     );

@@ -10,23 +10,21 @@ import { sanity } from '../sanity';
 import { Typography } from '@material-tailwind/react';
 
 const CardAchievements = (achievement) => {
-  // console.log('bre1');
-  // console.log(achievement);
   const [likeToggle,setLikeToggle]=useState(false);
   const {currentUser}=useSelector(state=>state.user)
-  
+  // console.log(achievement)
+  // console.log(currentUser)
   const handlelike=()=>{
   const updateQuery = achievement._id;
   let newLikeArray = [];
   if (Array.isArray(achievement.like)) {
     if (likeToggle) {
-      newLikeArray = achievement.like.filter(userId => userId !== currentUser._id); // Remove current user ID
+      newLikeArray = achievement.like.filter(userId => userId !== currentUser?._id); // Remove current user ID
     } else {
-      newLikeArray = [...achievement.like, currentUser._id]; // Add current user ID
+      newLikeArray = [...achievement.like, currentUser?._id]; // Add current user ID
     }
   } else {
-    // If achievement.like is not an array, create a new array with or without the current user ID based on likeToggle
-    newLikeArray = likeToggle ? [] : [currentUser._id];
+    newLikeArray = likeToggle ? [] : [currentUser?._id];
   }
   
   sanity.patch(updateQuery)
@@ -49,7 +47,7 @@ const CardAchievements = (achievement) => {
     sanity.delete(deleteQuery)
     .then((response) => {
       console.log('Achievement deleted successfully:', response);
-      onDelete(achievement._id)
+      // onDelete(achievement._id)
     })
     .catch((error) => {
       console.error('Error deleting achievement:', error);
@@ -80,7 +78,7 @@ const CardAchievements = (achievement) => {
         {likeToggle?<AiFillLike />:<AiOutlineLike />}
         </button>  
         <button onClick={handledelete}>
-        {currentUser.userid===achievement.userid?<MdDelete />:''}
+        {currentUser?._id===achievement.userid?<MdDelete />:''}
         </button>
         </div>
     </div>

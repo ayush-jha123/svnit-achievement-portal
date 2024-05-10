@@ -17,7 +17,7 @@ const AdminPortal = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className='container1'>
         <Sidebar activeOption={activeOption} onOptionClick={handleOptionClick} />
         {activeOption === 'navigation' && <Navigation />}

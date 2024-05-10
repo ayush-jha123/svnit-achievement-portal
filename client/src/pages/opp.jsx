@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 import Footer from '../components/Footer'
 import {sanity} from '../sanity';
 
-const Achivements = () => {
+const Oppertunity = () => {
 
   const [oppertunity,setOppertunity]=useState([]);
         useEffect(() => {
@@ -19,7 +19,7 @@ const Achivements = () => {
        console.log(oppertunity);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container">
         <div className="header">
         <h1>Opportunities</h1>
@@ -49,4 +49,4 @@ const Achivements = () => {
   );
 };
 
-export default Achivements;
+export default Oppertunity;
