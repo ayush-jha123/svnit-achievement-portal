@@ -11,23 +11,37 @@ import { useState, useEffect } from "react";
 
 const Achivements = () => {
   const [achievements, setAchievements] = useState([]);
+  const [filterAchievements,setFilterAchievements]=useState([])
+  const [tag,setTag]=useState(null)
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
       setAchievements(data);
+      setFilterAchievements(data);
     });
   }, []);
+  useEffect(() => {
+    if(tag){
+      const filteredAchievements = achievements.filter((achievement) => achievement.tags === tag);
+      setFilterAchievements(filteredAchievements)
+    }
+  }, [tag])
+  
+  const handleSetTag = (newTag) => {
+    setTag(newTag);
+  };
+  
   return (
     <div>
-      
       <div className="container">
         <div className="header">
           <h1>Achivement</h1>
         </div>
         <div className="Main">
-          <Sidebar />
+          <Sidebar handler={handleSetTag}/>
+          {console.log(tag)}
           <div className="Cards">
-            {achievements.map((achievement) => (
+            {filterAchievements.map((achievement) => (
               <CardAchievements key={achievement._id} {...achievement} />
             ))}
           </div>

@@ -8,15 +8,30 @@ import Footer from '../components/Footer'
 import {sanity} from '../sanity';
 
 const Oppertunity = () => {
-
+  const [tag,setTag]=useState(null)
   const [oppertunity,setOppertunity]=useState([]);
+  const [filterOppertunity,setFilterOppertunity]=useState([]);
         useEffect(() => {
           const skillsQuery='*[_type=="oppertunities"]';
           sanity.fetch(skillsQuery).then((data)=>{
            setOppertunity(data);
+           setFilterOppertunity(data)
           })
          }, [])
        console.log(oppertunity);
+
+       useEffect(() => {
+        console.log(tag)
+        if(tag){
+          const filteredOppertunity = oppertunity.filter((opp) => opp.tags === tag);
+          setFilterOppertunity(filteredOppertunity)
+        }
+      }, [tag])
+      
+      const handleSetTag = (newTag) => {
+        setTag(newTag);
+      };
+
   return (
     <div>
       {/* <Navbar /> */}
@@ -25,7 +40,7 @@ const Oppertunity = () => {
         <h1>Opportunities</h1>
       </div>
       <div className="Main">
-        <Sidebar />
+        <Sidebar handler={handleSetTag}/>
         <div>
         {/* <div className="head">
             <div className="from"><p>From Students</p></div>
@@ -34,7 +49,7 @@ const Oppertunity = () => {
 
         
         <div className="Cards">
-            {oppertunity.map((oppertunity) => (
+            {filterOppertunity.map((oppertunity) => (
               <div className=''>
                 <Card key={oppertunity._id} {...oppertunity} />
               </div>

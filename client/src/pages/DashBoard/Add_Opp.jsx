@@ -24,6 +24,7 @@ export default function Add_Ach() {
       applylink: formData.applylink,
       openingdate: formData.openingdate,
       closingdate: formData.closingdate,
+      tags:formData.tags
     };
 
     sanity
@@ -56,7 +57,7 @@ export default function Add_Ach() {
                       name="title"
                       id="title"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Achievement Title"
+                      placeholder="Oppertunity Title"
                       onChange={handleChange}
                     />
                   </div>
@@ -73,7 +74,7 @@ export default function Add_Ach() {
                       name="participants"
                       id="participants"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Achievement Title"
+                      placeholder="For Whom"
                       onChange={handleChange}
                     />
                   </div>
@@ -90,7 +91,24 @@ export default function Add_Ach() {
                       name="description"
                       id="first_name"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Achievement Title"
+                      placeholder="Description"
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                     Tags
+                    </label>
+                    <input
+                      type="text"
+                      name="tags"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Tags"
                       onChange={handleChange}
                     />
                   </div>
@@ -138,7 +156,7 @@ export default function Add_Ach() {
                       name="applylink"
                       id="first_name"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Achievement Title"
+                      placeholder="Apply Link"
                       onChange={handleChange}
                     />
                   </div>

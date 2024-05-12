@@ -22,6 +22,7 @@ export const signIn=async (req,res)=>{
 }
 
 export const signUp=async(req,res)=>{
+    
     const {name,email,password,confirmPassword}=req.body;
     try {
         const userData=await User.findOne({email});
@@ -40,8 +41,8 @@ export const signUp=async(req,res)=>{
        return res.status(200).json({result,token});
         
     } catch (error) {
-    //    return res.status(500).json({message:"Something went wrong"});
-       next(error)
+       return res.status(500).json({message:"Something went wrong"});
+    //    next(error)
     }
 
 }
@@ -71,6 +72,6 @@ export const google=async (req,res,next)=>{
         }).status(200).json(rest);
         }
     } catch (error) {
-        next(error);
+        return res.status(500).json({message:"Something went wrong"});
     }
 }
