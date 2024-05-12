@@ -1,15 +1,15 @@
-import React from 'react'
+// sidebar
+import React,{useState} from 'react'
 import './Sidebar.css'
 
-const Sidebar = () => {
+const Sidebar = ({handler}) => {
   return (
     <div className="sidebar">
         <ul id="list">
-            <li><span>Academics</span></li>
-            <li><span>Extracurricular</span></li>
-            <li><span>Placement</span></li>
-            <li><span>Start Up</span></li>
-            <li><span>All</span></li>
+            <li><span><button onClick={()=>handler('Academics')}>Academics</button></span></li>
+            <li><span><button onClick={()=>handler('Extracurricular')}>Extracurricular</button></span></li>
+            <li><span><button onClick={()=>handler('Placement')}>Placement</button></span></li>
+            <li><span><button onClick={()=>handler('StartUp')}>Start Up</button></span></li>
         </ul>
     </div>
   )

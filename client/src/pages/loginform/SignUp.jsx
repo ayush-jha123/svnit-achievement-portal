@@ -26,6 +26,7 @@ export default function SignUp() {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData)
     e.preventDefault();
     // add proxy at vite.config
     dispatch(signUpStart())
