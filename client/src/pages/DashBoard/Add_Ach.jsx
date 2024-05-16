@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { sanity } from "../../sanity";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
+  const dispatch=useDispatch();
   const user = useSelector((state) => state.user);
+  const toggle=useSelector((state)=>state.post)
   console.log(user.currentUser);
   const navigate = useNavigate();
   const handleChange = (e) => {

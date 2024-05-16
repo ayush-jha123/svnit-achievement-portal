@@ -35,8 +35,8 @@ function App() {
           <Route path="/Settings" element={<Settings/>}></Route>
           <Route path="/Add_Ach" element={<Add_Ach/>}></Route>
           <Route path="/Add_Opp" element={<Add_Opp/>}></Route>
-          <Route path="/Ach_card_details" element={<AchDetails/>}></Route>
-          <Route path="/Opp_card_details" element={<OppDetails/>}></Route>
+          <Route path="/Ach_card_details/:id" element={<AchDetails/>}></Route>
+          <Route path="/Opp_card_details/:id" element={<OppDetails/>}></Route>
 
 
           <Route path='/Admin' element={< AdminPortal/>}></Route>

@@ -10,6 +10,7 @@ import { sanity } from '../sanity';
 import { Typography } from '@material-tailwind/react';
 
 const CardAchievements = (achievement) => {
+
   const [likeToggle,setLikeToggle]=useState(false);
   const {currentUser}=useSelector(state=>state.user)
   // console.log(achievement)
@@ -47,12 +48,13 @@ const CardAchievements = (achievement) => {
     sanity.delete(deleteQuery)
     .then((response) => {
       console.log('Achievement deleted successfully:', response);
-      // onDelete(achievement._id)
+      
     })
     .catch((error) => {
       console.error('Error deleting achievement:', error);
     });
   }
+
   return (
     <div className="card4">
         <div className="bar">
@@ -62,7 +64,7 @@ const CardAchievements = (achievement) => {
                 src={batman}
               />
             </div>
-            <Link to={"/Ach_card_details"}>
+            <Link to={`/Ach_card_details/${achievement._id}`}>
             <span>{achievement.title}</span> 
             </Link>
         </div>
