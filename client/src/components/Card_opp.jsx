@@ -131,7 +131,7 @@ export default function CardItem(oppertunity) {
         <Typography>{oppertunity.description}</Typography>
       </CardBody>
       <CardFooter className="pt-0 flex justify-between">
-        <Link to={"/Opp_card_details"}>
+        <Link to={`/Opp_card_details/${oppertunity._id}`}>
           <Button size="sm" variant="text" className="flex items-center gap-2">
             Learn More
             <svg

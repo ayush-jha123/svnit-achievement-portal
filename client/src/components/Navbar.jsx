@@ -7,6 +7,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from '../redux/user/userSlice'
 
+
 export default function Navbar() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
@@ -30,9 +31,9 @@ export default function Navbar() {
           </div>
           <div>
           {currentUser?<button onClick={handleLogout}>LOG OUT</button>:<Link to={"/Login"} style={{textDecoration:"none"}}><Navbutton title="LOG IN"/></Link>}
-          
           </div>
         </div>
     </>
   )
 }
+

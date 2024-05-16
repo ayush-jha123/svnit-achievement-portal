@@ -18,10 +18,10 @@ const Oppertunity = () => {
            setFilterOppertunity(data)
           })
          }, [])
-       console.log(oppertunity);
+      //  console.log(oppertunity);
 
        useEffect(() => {
-        console.log(tag)
+        // console.log(tag)
         if(tag){
           const filteredOppertunity = oppertunity.filter((opp) => opp.tags === tag);
           setFilterOppertunity(filteredOppertunity)

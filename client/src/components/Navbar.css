@@ -7,7 +7,6 @@
   justify-content: space-between;
   color: black;
   position: fixed;
-  /* padding-right: 10px; */
 }
 
 .title {
@@ -38,3 +37,4 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
