@@ -9,19 +9,25 @@ import { sanity } from "../../sanity.js";
 export default function Main() {
   const [achievements, setAchievements] = useState([]);
   const [oppertunity, setOppertunity] = useState([]);
+  const [update,setUpdate]=useState(false)
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
       setAchievements(data);
     });
-  }, []);
+  }, [update]);
 
   useEffect(() => {
     const skillsQuery = '*[_type=="oppertunities"]';
     sanity.fetch(skillsQuery).then((data) => {
       setOppertunity(data);
     });
-  }, []);
+  }, [update]);
+
+  const toggle=()=>{
+    setUpdate(!update)
+  }
+  console.log(achievements)
   return (
     <div className="wrapper1">
       <div className="title">
@@ -76,7 +82,7 @@ export default function Main() {
         </p>
         <div className="table1">
           {achievements.map((achievement) => (
-            <CardAchievements key={achievement._id} {...achievement} />
+            <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
           ))}
         </div>
         <Link to={"/Achivements"} className="ach_view" title="View More">
@@ -91,7 +97,7 @@ export default function Main() {
           <div className="table2">
             {oppertunity.map((oppertunity) => (
               <div className="">
-                <Card key={oppertunity._id} {...oppertunity} />
+                <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
               </div>
             ))}
           </div>

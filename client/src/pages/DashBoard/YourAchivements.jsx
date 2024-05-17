@@ -10,17 +10,21 @@ export default function YourAchivements() {
   const user = useSelector(state => state.user);
   const [achievements, setAchievements] = useState([]);
   const [filteredAchievements, setFilteredAchievements] = useState([]);
-
+  const [update,setUpdate]=useState(false)
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
       setAchievements([...data]);
     });
-  }, []);
+  }, [update]);
 
   useEffect(() => {
     setFilteredAchievements(achievements.filter((achievement)=>achievement.userid===user.currentUser._id));
   }, [achievements])
+
+  const toggle=()=>{
+    setUpdate(!update)
+  }
   return (
     <>
     {/* <Navbar /> */}
@@ -43,7 +47,7 @@ export default function YourAchivements() {
         </div>
         <div>
         {filteredAchievements.map((achievement) => (
-            <CardAchievements key={achievement._id} {...achievement} />
+            <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
           ))}
         </div>
       </div>
