@@ -68,7 +68,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
   console.log(likeCount);
   return (
     <div className="card4">
-      <div className="bar">
+      <div className="bar items-center">
         <div className="photo2">
           <img className="image3" src={batman} />
         </div>
@@ -76,8 +76,8 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           <span>{achievement?.title}</span>
         </Link>
       </div>
-      <p className="mt-3 mx-5">Posted By:{achievement?.postedby}</p>
-      <div className="card_info">
+      <p className="mt-3 mx-5 hover:no-underline">Posted By: {achievement?.postedby}</p>
+      <div className="card_info ml-5">
         <p id="font">
           <b>Name: </b>
           {achievement?.body}
@@ -91,7 +91,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
         </p>
       </div>
       {/* <a id='view'>View more</a> */}
-      <div className="flex justify-between">
+      <div className="flex justify-between ml-3 mr-2 mb-50">
         <div style={{ display: "flex", gap: "4px" }}>
           <button onClick={handlelike}>
             {likeToggle ? <AiFillLike /> : <AiOutlineLike />}

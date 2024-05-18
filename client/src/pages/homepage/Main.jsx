@@ -41,13 +41,13 @@ export default function Main() {
         </div>
         <div className="intro1">
           <p
-            className="intro_p"
+            className="intro_p hover:no-underline"
             style={{ color: "#203342", fontSize: "2.5em" }}
           >
-            Achievemnet throufh effort or skill
+            Achievemnet through effort or skill
           </p>
           <p
-            className="intro1_p"
+            className="intro1_p hover:no-underline"
             style={{ color: "#203342", fontSize: "1.2em", fontWeight: "400" }}
           >
             It's possible this refers to a particular writing instructionor
@@ -59,7 +59,7 @@ export default function Main() {
       </div>
       <div className="wrapper2">
         <p
-          className="wrap_recent"
+          className="wrap_recent hover:no-underline"
           style={{
             color: "#474a51",
             fontSize: "2.5em",
@@ -70,7 +70,7 @@ export default function Main() {
           RECENT
         </p>
         <p
-          className="wrap_ach"
+          className="wrap_ach hover:no-underline"
           style={{
             color: "#192a3c",
             fontSize: "2em",
@@ -85,16 +85,16 @@ export default function Main() {
             <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
           ))}
         </div>
-        <Link to={"/Achivements"} className="ach_view" title="View More">
+        <Link to={"/Achivements"} className="ach_view hover:no-underline" title="View More">
           View More
         </Link>
-        <div className="head2">
+        <div className="head2 hover:no-underline">
           <p
             style={{ color: "#192a3c", fontSize: "2.3em", fontWeight: "bold" }}
           >
             Opportuinities
           </p>
-          <div className="table2">
+          <div className="table2 hover:no-underline">
             {oppertunity.map((oppertunity) => (
               <div className="">
                 <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
@@ -102,7 +102,7 @@ export default function Main() {
             ))}
           </div>
         </div>
-        <Link to={"/Opportunities"} className="ach_view">
+        <Link to={"/Opportunities"} className="ach_view hover:no-underline">
           View More
         </Link>
       </div>

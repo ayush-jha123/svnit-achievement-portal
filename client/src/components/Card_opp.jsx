@@ -130,21 +130,21 @@ export default function CardItem({oppertunity,onUpdate}) {
           </button>
           </div>
         </div>
-        <Typography variant="h5" color="blue-gray" className="mb-2">
+        <Typography variant="h5" color="blue-gray" className="mb-2 mx-5">
           {oppertunity?.title}
         </Typography>
-        <Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline">
           <b>For Whom:</b> {oppertunity?.participants}
         </Typography>
-        <Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline">
           <b>Apply Link:</b> {oppertunity?.applylink}
         </Typography>
-        <Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline">
           <b>Date:</b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
         </Typography>
-        <Typography>{oppertunity?.description}</Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline">{oppertunity?.description}</Typography>
       </CardBody>
-      <CardFooter className="pt-0 flex justify-between">
+      <CardFooter className="pt-0 flex justify-between mx-5">
         <Link to={`/Opp_card_details/${oppertunity?._id}`}>
           <Button size="sm" variant="text" className="flex items-center gap-2">
             Learn More
