@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 const Achivements = () => {
   const [achievements, setAchievements] = useState([]);
   const [filterAchievements,setFilterAchievements]=useState([])
+  const [update,setUpdate]=useState(false)
   const [tag,setTag]=useState(null)
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
@@ -19,7 +20,7 @@ const Achivements = () => {
       setAchievements(data);
       setFilterAchievements(data);
     });
-  }, []);
+  }, [update]);
   useEffect(() => {
     if(tag){
       const filteredAchievements = achievements.filter((achievement) => achievement.tags === tag);
@@ -30,7 +31,9 @@ const Achivements = () => {
   const handleSetTag = (newTag) => {
     setTag(newTag);
   };
-  
+  const toggle=()=>{
+    setUpdate(!update)
+  }
   return (
     <div>
       <div className="container">
@@ -42,7 +45,7 @@ const Achivements = () => {
           {console.log(tag)}
           <div className="Cards">
             {filterAchievements.map((achievement) => (
-              <CardAchievements key={achievement._id} {...achievement} />
+              <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle}/>
             ))}
           </div>
         </div>

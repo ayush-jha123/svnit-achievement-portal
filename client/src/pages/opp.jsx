@@ -11,13 +11,14 @@ const Oppertunity = () => {
   const [tag,setTag]=useState(null)
   const [oppertunity,setOppertunity]=useState([]);
   const [filterOppertunity,setFilterOppertunity]=useState([]);
+  const [update,setUpdate]=useState(false)
         useEffect(() => {
           const skillsQuery='*[_type=="oppertunities"]';
           sanity.fetch(skillsQuery).then((data)=>{
            setOppertunity(data);
            setFilterOppertunity(data)
           })
-         }, [])
+         }, [update])
       //  console.log(oppertunity);
 
        useEffect(() => {
@@ -31,7 +32,9 @@ const Oppertunity = () => {
       const handleSetTag = (newTag) => {
         setTag(newTag);
       };
-
+      const toggle=()=>{
+        setUpdate(!update)
+      }
   return (
     <div>
       {/* <Navbar /> */}
@@ -51,7 +54,7 @@ const Oppertunity = () => {
         <div className="Cards">
             {filterOppertunity.map((oppertunity) => (
               <div className=''>
-                <Card key={oppertunity._id} {...oppertunity} />
+                <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
               </div>
             ))}
         </div>

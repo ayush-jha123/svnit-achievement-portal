@@ -10,13 +10,14 @@ export default function YourOpp() {
   const user = useSelector((state) => state.user);
   const [filteredOppertunities, setFilteredOppertunities] = useState([]);
   const [opportunities, setOpportunities] = useState([]);
+  const [update,setUpdate]=useState(false)
 
   useEffect(() => {
     const skillsQuery = '*[_type=="oppertunities"]';
     sanity.fetch(skillsQuery).then((data) => {
       setOpportunities(data);
     });
-  }, []);
+  }, [update]);
   useEffect(() => {
     setFilteredOppertunities(
       opportunities.filter(
@@ -24,6 +25,9 @@ export default function YourOpp() {
       )
     );
   }, [opportunities]);
+  const toggle=()=>{
+    setUpdate(!update)
+  }
   return (
     <>
       {/* <Navbar /> */}
@@ -48,8 +52,8 @@ export default function YourOpp() {
             </div>
           </div>
           <div>
-            {filteredOppertunities.map((opportunity) => (
-              <Card key={opportunity._id} {...opportunity} />
+            {filteredOppertunities.map((oppertunity) => (
+              <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
             ))}
           </div>
         </div>

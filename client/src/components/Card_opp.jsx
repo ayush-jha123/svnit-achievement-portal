@@ -46,24 +46,25 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import { sanity } from "../sanity";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function CardItem(oppertunity) {
+export default function CardItem({oppertunity,onUpdate}) {
   // console.log("oppn");
   // console.log(oppertunity);
   const [likeToggle, setLikeToggle] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
   const {currentUser}=useSelector(state=>state.user);
   const handleLike = () => {
-    const updateQuery = oppertunity._id;
+    const updateQuery = oppertunity?._id;
     let newLikeArray = [];
-    if (Array.isArray(oppertunity.like)) {
+    if (Array.isArray(oppertunity?.like)) {
       if (likeToggle) {
-        newLikeArray = oppertunity.like.filter(
+        newLikeArray = oppertunity?.like.filter(
           (userId) => userId !== currentUser?._id
         ); // Remove current user ID
       } else {
-        newLikeArray = [...oppertunity.like, currentUser?._id]; // Add current user ID
+        newLikeArray = [...oppertunity?.like, currentUser?._id]; // Add current user ID
       }
     } else {
       newLikeArray = likeToggle ? [] : [currentUser?._id];
@@ -75,17 +76,19 @@ export default function CardItem(oppertunity) {
       .commit()
       .then((response) => {
         console.log("Oppertunity updated successfully:", response);
+        setLikeToggle(!likeToggle); // Update local state first
+        {likeToggle?setLikeCount(likeCount-1):setLikeCount(likeCount+1)}
       })
       .catch((error) => {
         console.error("Error updating oppertunity:", error);
       });
 
-    setLikeToggle(!likeToggle);
+    onUpdate()
   };
 
   const handleDelete = () => {
     // const deleteQuery = `*[_id == "${achievement._id}"]`;
-    const deleteQuery = oppertunity._id;
+    const deleteQuery = oppertunity?._id;
     sanity
       .delete(deleteQuery)
       .then((response) => {
@@ -95,6 +98,14 @@ export default function CardItem(oppertunity) {
         console.error("Error deleting achievement:", error);
       });
   };
+
+  useEffect(() => {
+    if (oppertunity?.like && oppertunity?.like.includes(currentUser?._id)) {
+      setLikeToggle(true);
+    }
+    setLikeCount(oppertunity?.like.length);
+  }, [oppertunity, currentUser]);
+
   return (
     <Card className="mt-6 w-96 shadow-md rounded-md bg-slate-100 p-2">
       <CardBody>
@@ -112,26 +123,29 @@ export default function CardItem(oppertunity) {
             />
             <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
           </svg>
+          <div style={{display:'flex' ,alignItems:'center', gap:'4px'}}>
+          <h >{likeCount}</h>
           <button onClick={handleLike}>
             {likeToggle?<FaHeart style={{ fontSize: "2em" }} />:<IoIosHeartEmpty style={{ fontSize: "2em" }} />}
           </button>
+          </div>
         </div>
         <Typography variant="h5" color="blue-gray" className="mb-2">
-          {oppertunity.title}
+          {oppertunity?.title}
         </Typography>
         <Typography>
-          <b>For Whom:</b> {oppertunity.participants}
+          <b>For Whom:</b> {oppertunity?.participants}
         </Typography>
         <Typography>
-          <b>Apply Link:</b> {oppertunity.applylink}
+          <b>Apply Link:</b> {oppertunity?.applylink}
         </Typography>
         <Typography>
-          <b>Date:</b> {oppertunity.openingdate} : {oppertunity.closingdate}
+          <b>Date:</b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
         </Typography>
-        <Typography>{oppertunity.description}</Typography>
+        <Typography>{oppertunity?.description}</Typography>
       </CardBody>
       <CardFooter className="pt-0 flex justify-between">
-        <Link to={`/Opp_card_details/${oppertunity._id}`}>
+        <Link to={`/Opp_card_details/${oppertunity?._id}`}>
           <Button size="sm" variant="text" className="flex items-center gap-2">
             Learn More
             <svg
