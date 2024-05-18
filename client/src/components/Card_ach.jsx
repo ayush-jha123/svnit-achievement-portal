@@ -8,13 +8,16 @@ import { useSelector } from "react-redux";
 import { AiFillLike } from "react-icons/ai";
 import { sanity } from "../sanity";
 import { Typography } from "@material-tailwind/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CardAchievements = ({ achievement, onUpdate }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  // console.log(achievement)
-  // console.log(currentUser)
+  
+  const likeadded = () => toast("Like Added successfully");
+  const likeremoved = () => toast("Like removed successfully");
   const handlelike = () => {
     const updateQuery = achievement?._id;
     let newLikeArray = [];
@@ -24,7 +27,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           (userId) => userId !== currentUser?._id
         ); // Remove current user ID
       } else {
-        newLikeArray = [...achievement.like, currentUser?._id]; // Add current user ID
+        newLikeArray = [...achievement?.like, currentUser?._id]; // Add current user ID
       }
     } else {
       newLikeArray = likeToggle ? [] : [currentUser?._id];
@@ -37,7 +40,12 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .then((response) => {
         console.log("Achievement updated successfully:", response);
         setLikeToggle(!likeToggle); // Update local state first
-        {likeToggle?setLikeCount(likeCount-1):setLikeCount(likeCount+1)}
+        {
+          likeToggle
+            ? setLikeCount(likeCount - 1)
+            : setLikeCount(likeCount + 1);
+            {likeToggle?likeremoved():likeadded()}
+        }
       })
       .catch((error) => {
         console.error("Error updating achievement:", error);
@@ -45,11 +53,14 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       onUpdate();
   };
 
+
   useEffect(() => {
     if (achievement?.like && achievement?.like.includes(currentUser?._id)) {
       setLikeToggle(true);
     }
-    setLikeCount(achievement?.like.length);
+    if(achievement?.like){
+      setLikeCount(achievement?.like?.length);
+    }
   }, [achievement, currentUser]);
 
   const handledelete = () => {
@@ -59,12 +70,13 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .delete(deleteQuery)
       .then((response) => {
         console.log("Achievement deleted successfully:", response);
+        onUpdate()
       })
       .catch((error) => {
         console.error("Error deleting achievement:", error);
       });
   };
-  console.log(achievement?.like.length);
+  console.log(achievement?.like?.length);
   console.log(likeCount);
   return (
     <div className="card4">

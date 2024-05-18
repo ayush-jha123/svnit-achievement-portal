@@ -5,11 +5,12 @@ import Footer from "../../components/Footer.jsx";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { sanity } from "../../sanity.js";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Main() {
   const [achievements, setAchievements] = useState([]);
   const [oppertunity, setOppertunity] = useState([]);
-  const [update,setUpdate]=useState(false)
+  const [update, setUpdate] = useState(false);
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
@@ -24,10 +25,10 @@ export default function Main() {
     });
   }, [update]);
 
-  const toggle=()=>{
-    setUpdate(!update)
-  }
-  console.log(achievements)
+  const toggle = () => {
+    setUpdate(!update);
+  };
+  console.log(achievements);
   return (
     <div className="wrapper1">
       <div className="title">
@@ -80,9 +81,14 @@ export default function Main() {
         >
           ACHIEVEMENT
         </p>
+        {console.log(achievements)}
         <div className="table1">
           {achievements.map((achievement) => (
-            <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
+            <CardAchievements
+              key={achievement._id}
+              achievement={achievement}
+              onUpdate={toggle}
+            />
           ))}
         </div>
         <Link to={"/Achivements"} className="ach_view" title="View More">
@@ -97,7 +103,11 @@ export default function Main() {
           <div className="table2">
             {oppertunity.map((oppertunity) => (
               <div className="">
-                <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
+                <Card
+                  key={oppertunity._id}
+                  oppertunity={oppertunity}
+                  onUpdate={toggle}
+                />
               </div>
             ))}
           </div>
@@ -107,6 +117,7 @@ export default function Main() {
         </Link>
       </div>
       <Footer />
+      <ToastContainer/>
     </div>
   );
 }
