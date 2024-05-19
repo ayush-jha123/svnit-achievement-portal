@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import svnitIcon3 from "../../public/assets/Ellipse 12.png";
 import Navbar from "../components/Navbar";
-import DashSide from "./DashBoard/DashSide";
+import DashSide from "./dashboard/DashSide";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { urlFor } from "../sanity";
 export default function Dashboard() {
   const [credentials, setCredentials] = useState({});
-  const {currentUser} = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser)
   useEffect(() => {
     setCredentials(currentUser);
   }, [currentUser]);
- 
+
   return (
     <div>
       {/* <Navbar /> */}
-      {credentials?(
+      {credentials ? (
         <div className="boddy">
           <div className="column1">
             <img
@@ -60,7 +60,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      ):<div>Please Login to see your DashBoard</div>}
+      ) : <div>Please Login to see your dashboard</div>}
     </div>
   );
 }
