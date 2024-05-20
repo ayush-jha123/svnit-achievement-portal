@@ -3,11 +3,11 @@ import RequestBox from './Request/RequestBox'
 
 const Request = () => {
   return (
-    <div className='container2'>
-        <div className='heading'>Request</div>
-        <RequestBox />
-        <RequestBox />
-        <RequestBox />
+    <div>
+      <div className='heading text-3xl font-bold mb-4'>Request</div>
+      <RequestBox />
+      <RequestBox />
+      <RequestBox />
     </div>
   )
 }

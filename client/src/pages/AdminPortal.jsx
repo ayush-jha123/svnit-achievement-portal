@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import './AdminPortal.css';
 import Sidebar from '../components/AdminPortal/Sidebar';
 import Navbar from '../components/Navbar';
-import Navigation from '../components/AdminPortal/Navigation';
 import Dashboard from '../components/AdminPortal/Dashboard';
 import Request from '../components/AdminPortal/Request';
 import User from '../components/AdminPortal/User';
-import Comment from '../components/AdminPortal/Comment';
+import Settings from '../components/AdminPortal/Settings';
 
 const AdminPortal = () => {
-  const [activeOption, setActiveOption] = useState('request'); // Initially render Request
+  const [activeOption, setActiveOption] = useState('dashboard'); // Initially render Dashboard
 
   const handleOptionClick = (option) => {
     setActiveOption(option);
@@ -24,7 +23,7 @@ const AdminPortal = () => {
         {activeOption === 'dashboard' && <Dashboard />}
         {activeOption === 'request' && <Request />}
         {activeOption === 'user' && <User />}
-        {activeOption === 'comments' && <Comment />}
+        {activeOption === 'settings' && <Settings />}
       </div>
     </>
   );
