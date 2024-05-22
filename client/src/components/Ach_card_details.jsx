@@ -5,9 +5,9 @@ import { sanity } from '../sanity';
 
 
 const achCardDetails = () => {
-  const {id}=useParams();
+  const { id } = useParams();
   const [achievements, setAchievements] = useState([]);
-  const [filterAchievements,setFilterAchievements]=useState([])
+  const [filterAchievements, setFilterAchievements] = useState([])
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
     sanity.fetch(skillsQuery).then((data) => {
@@ -29,18 +29,20 @@ const achCardDetails = () => {
 
   const achievement = filterAchievements[0];
   return (
-    <div>
-    <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-<div className="px-4 py-2">
-    <h1 className="text-2xl font-bold mb-2">{achievement.title}</h1>
-    <h3 className="text-lg font-bold mb-2">{achievement.postedby}</h3>
-    <p className="text-gray-600 mb-4">{achievement.description}</p>
-    <img className="w-80 h-80 object-cover mx-auto mb-4" src={batman} alt="User Image" />
-    <p className="text-gray-600">Email of user</p>
-</div>
-</div>
+    <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4'>
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="px-6 py-4">
+          <h1 className="text-3xl font-bold text-center mb-4">{achievement.title}</h1>
+          <h3 className="text-xl font-semibold text-center mb-2">{achievement.postedby}</h3>
+          <p className="text-gray-700 text-center mb-4">{achievement.description}</p>
+          <div className="flex justify-center mb-4">
+            <img className="w-80 h-80 object-cover shadow-lg" src={batman} alt="User Image" />
+          </div>
+          <p className="text-gray-600 text-center">Email of user</p>
+        </div>
+      </div>
 
-</div>
+    </div>
   )
 }
 

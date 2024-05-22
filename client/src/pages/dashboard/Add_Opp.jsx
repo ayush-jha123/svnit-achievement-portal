@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { sanity } from "../../sanity";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const user=useSelector(state=>state.user)
+  const user = useSelector(state => state.user)
   console.log(user.currentUser.name)
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -16,36 +15,35 @@ export default function Add_Ach() {
     e.preventDefault();
     const achieve = {
       _type: "oppertunities",
-      postedby:user.currentUser.name,
-      userid:user.currentUser._id,
+      postedby: user.currentUser.name,
+      userid: user.currentUser._id,
       title: formData.title,
       participants: formData.participants,
       description: formData.description,
       applylink: formData.applylink,
       openingdate: formData.openingdate,
       closingdate: formData.closingdate,
-      tags:formData.tags
+      tags: formData.tags
     };
 
     sanity
-      .create(achieve )
+      .create(achieve)
       .then(() => {
         navigate('/Opportunities', { replace: true })
       })
       .catch((err) => console.log(err));
-    
+
   };
 
   return (
     <>
-      {/* <Navbar /> */}
-      <div>
+      <div className="mt-12">
         <div className="md:grid md:grid-cols-3 md:gap-6" id="addAcv">
           <div className="mt-5 md:col-span-2 md:mt-0">
             <form>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-                   <div>
+                  <div>
                     <label
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -62,7 +60,7 @@ export default function Add_Ach() {
                     />
                   </div>
 
-                   <div>
+                  <div>
                     <label
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -84,7 +82,7 @@ export default function Add_Ach() {
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                     Description
+                      Description
                     </label>
                     <input
                       type="text"
@@ -101,7 +99,7 @@ export default function Add_Ach() {
                       for="first_name"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                     Tags
+                      Tags
                     </label>
                     <input
                       type="text"

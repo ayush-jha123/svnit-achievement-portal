@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar.jsx";
 import DashSide from "./DashSide.jsx";
 import { useSelector } from "react-redux";
 import { sanity } from "../../sanity.js";
@@ -10,7 +9,7 @@ export default function YourOpp() {
   const user = useSelector((state) => state.user);
   const [filteredOppertunities, setFilteredOppertunities] = useState([]);
   const [opportunities, setOpportunities] = useState([]);
-  const [update,setUpdate]=useState(false)
+  const [update, setUpdate] = useState(false)
 
   useEffect(() => {
     const skillsQuery = '*[_type=="oppertunities"]';
@@ -25,15 +24,14 @@ export default function YourOpp() {
       )
     );
   }, [opportunities]);
-  const toggle=()=>{
+  const toggle = () => {
     setUpdate(!update)
   }
   return (
     <>
-      {/* <Navbar /> */}
-      <div className="grid grid-flow-col h-screen grid-cols-auto">
+      <div className="grid grid-flow-col h-screen grid-cols-auto mt-12">
         <DashSide />
-        <div className="flex-col mt-20 col-span-3">
+        <div className="flex-col mt-2 col-span-3">
           <div className="flex justify-between">
             <header className="bg-transparent">
               <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

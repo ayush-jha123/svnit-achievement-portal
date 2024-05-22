@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Home from './pages/Home'
 import Achivements from './pages/Achivements'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Opp from './pages/opp'
 import Dash from './pages/Dashboard'
 import Settings from './pages/dashboard/Settings'
 import YourAchivements from './pages/dashboard/YourAchivements'
-import MyFeed from './pages/dashboard/MyFeed'
 import YourOpp from './pages/dashboard/YourOpp'
 import Add_Ach from './pages/dashboard/Add_Ach'
 import AdminPortal from './pages/AdminPortal'
@@ -30,7 +28,6 @@ function App() {
         <Route path='/Dashboard' element={< Dash />}></Route>
 
         <Route path='/YourAchivements' element={<YourAchivements />}></Route>
-        <Route path='/MyFeed' element={<MyFeed />}></Route>
         <Route path='/YourOpp' element={<YourOpp />}></Route>
         <Route path="/Settings" element={<Settings />}></Route>
         <Route path="/Add_Ach" element={<Add_Ach />}></Route>

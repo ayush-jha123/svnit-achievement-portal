@@ -1,39 +1,3 @@
-// import React from 'react'
-// import './Card_opp.css'
-// import { Link } from "react-router-dom";
-
-// const Card = (oppertunity) => {
-//   console.log(oppertunity)
-//   return (
-//     <div className='card1'>
-//         <h1 className='Dev'>
-//            {oppertunity.title}
-//         </h1>
-//         <p className='opp'>
-//             PostedBy:{oppertunity.postedby}
-//         </p>
-//         <p className='opp'>
-//             {oppertunity.description}
-//         </p>
-//         <br />
-//         <b>Dates:</b>
-//         <p className='opp'>
-//             {oppertunity.openingdate} : {oppertunity.closingdate}
-//         </p>
-//         <p className='opp'>
-//             {oppertunity.applylink}
-//         </p>
-//         <Link to={"/Opp_card_details"}>
-//           <button className='explore'>
-//             Explore
-//           </button>
-//           </Link>
-//     </div>
-//   )
-// }
-
-// export default Card
-
 import {
   Card,
   CardBody,
@@ -49,12 +13,12 @@ import { sanity } from "../sanity";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function CardItem({oppertunity,onUpdate}) {
+export default function CardItem({ oppertunity, onUpdate }) {
   // console.log("oppn");
   // console.log(oppertunity);
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  const {currentUser}=useSelector(state=>state.user);
+  const { currentUser } = useSelector(state => state.user);
   const handleLike = () => {
     const updateQuery = oppertunity?._id;
     let newLikeArray = [];
@@ -77,7 +41,7 @@ export default function CardItem({oppertunity,onUpdate}) {
       .then((response) => {
         console.log("Oppertunity updated successfully:", response);
         setLikeToggle(!likeToggle); // Update local state first
-        {likeToggle?setLikeCount(likeCount-1):setLikeCount(likeCount+1)}
+        { likeToggle ? setLikeCount(likeCount - 1) : setLikeCount(likeCount + 1) }
       })
       .catch((error) => {
         console.error("Error updating oppertunity:", error);
@@ -103,7 +67,7 @@ export default function CardItem({oppertunity,onUpdate}) {
     if (oppertunity?.like && oppertunity?.like.includes(currentUser?._id)) {
       setLikeToggle(true);
     }
-    setLikeCount(oppertunity?.like.length);
+    setLikeCount(oppertunity?.like?.length);
   }, [oppertunity, currentUser]);
 
   return (
@@ -123,18 +87,18 @@ export default function CardItem({oppertunity,onUpdate}) {
             />
             <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
           </svg>
-          <div style={{display:'flex' ,alignItems:'center', gap:'4px'}}>
-          <h >{likeCount}</h>
-          <button onClick={handleLike}>
-            {likeToggle?<FaHeart style={{ fontSize: "2em" }} />:<IoIosHeartEmpty style={{ fontSize: "2em" }} />}
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <h >{likeCount}</h>
+            <button onClick={handleLike}>
+              {likeToggle ? <FaHeart style={{ fontSize: "2em" }} /> : <IoIosHeartEmpty style={{ fontSize: "2em" }} />}
+            </button>
           </div>
         </div>
         <Typography variant="h5" color="blue-gray" className="mb-2 mx-5">
           {oppertunity?.title}
         </Typography>
         <Typography className="mb-2 mx-5 hover:no-underline">
-          <b>For Whom:</b> {oppertunity?.participants}
+          <b>Posted by:</b> {oppertunity?.participants}
         </Typography>
         <Typography className="mb-2 mx-5 hover:no-underline">
           <b>Apply Link:</b> {oppertunity?.applylink}

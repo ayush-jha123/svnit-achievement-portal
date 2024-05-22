@@ -20,7 +20,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className='navbar flex items-center justify-between h-16 w-full fixed top-0 bg-white shadow-md px-6'>
+      <div className='navbar flex items-center justify-between h-16 w-full fixed top-0 bg-white shadow-md px-6 z-50'>
         <div className='title flex items-center'>
           <img src='./assets/logo.svg' className='w-12 h-12 object-contain mr-4' alt='logo' />
           <div className='name text-2xl font-bold'>Achievo</div>

@@ -32,7 +32,7 @@ export default function Main() {
   console.log(achievements);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 mt-16">
+    <div className="min-h-screen bg-gray-100 mt-16">
       <div className="text-center text-5xl">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>

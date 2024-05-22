@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { sanity } from "../../sanity";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const toggle=useSelector((state)=>state.post)
+  const toggle = useSelector((state) => state.post)
   console.log(user.currentUser);
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -26,7 +25,7 @@ export default function Add_Ach() {
       date: formData.date,
       accredation: formData.accredation,
       imageurl: formData.imageurl,
-      tags:formData.tags
+      tags: formData.tags
     };
     console.log(achieve)
     sanity
@@ -39,8 +38,7 @@ export default function Add_Ach() {
 
   return (
     <>
-      {/* <Navbar /> */}
-      <div>
+      <div className="mt-12">
         <div className="md:grid md:grid-cols-3 md:gap-6" id="addAcv">
           <div className="mt-5 md:col-span-2 md:mt-0">
             <form>

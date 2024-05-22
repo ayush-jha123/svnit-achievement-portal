@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Card_ach.css";
 import batman from "../../public/assets/bat.jpeg";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
@@ -15,7 +14,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  
+
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
   const handlelike = () => {
@@ -44,13 +43,13 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           likeToggle
             ? setLikeCount(likeCount - 1)
             : setLikeCount(likeCount + 1);
-            {likeToggle?likeremoved():likeadded()}
+          { likeToggle ? likeremoved() : likeadded() }
         }
       })
       .catch((error) => {
         console.error("Error updating achievement:", error);
       });
-      onUpdate();
+    onUpdate();
   };
 
 
@@ -58,7 +57,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
     if (achievement?.like && achievement?.like.includes(currentUser?._id)) {
       setLikeToggle(true);
     }
-    if(achievement?.like){
+    if (achievement?.like) {
       setLikeCount(achievement?.like?.length);
     }
   }, [achievement, currentUser]);
@@ -79,31 +78,31 @@ const CardAchievements = ({ achievement, onUpdate }) => {
   console.log(achievement?.like?.length);
   console.log(likeCount);
   return (
-    <div className="card4">
-      <div className="bar items-center">
-        <div className="photo2">
-          <img className="image3" src={batman} />
+    <div className="bg-white rounded-xl shadow-lg m-7 p-0 h-auto w-full max-w-md flex flex-col">
+      <div className="bar flex items-center h-16 bg-[#9ed8ff] rounded-t-xl p-4 text-lg">
+        <div className="rounded-full overflow-hidden w-20 h-20 bg-cover bg-center mr-2">
+          <img className="w-full h-full" src={batman} />
         </div>
         <Link to={`/Ach_card_details/${achievement?._id}`}>
           <span>{achievement?.title}</span>
         </Link>
       </div>
       <p className="mt-3 mx-5 hover:no-underline">Posted By: {achievement?.postedby}</p>
-      <div className="card_info ml-5">
-        <p id="font">
+      <div className="ml-4 mt-2 text-base flex-grow">
+        <p id="font" className="mb-2">
           <b>Name: </b>
           {achievement?.body}
         </p>
-        <p id="font">
+        <p id="font" className="mb-2">
           <b>Date: </b>
           {achievement?.date}
         </p>
-        <p id="font">
+        <p id="font" className="mb-2">
           <b>Achievement :</b> {achievement?.description}{" "}
         </p>
       </div>
       {/* <a id='view'>View more</a> */}
-      <div className="flex justify-between ml-3 mr-2 mb-50">
+      <div className="flex justify-between items-center mx-4">
         <div style={{ display: "flex", gap: "4px" }}>
           <button onClick={handlelike}>
             {likeToggle ? <AiFillLike /> : <AiOutlineLike />}
