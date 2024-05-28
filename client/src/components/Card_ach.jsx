@@ -17,6 +17,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
 
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
+  const deleted= () => toast("Deleted Successfully");
   const handlelike = () => {
     const updateQuery = achievement?._id;
     let newLikeArray = [];
@@ -69,11 +70,12 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .delete(deleteQuery)
       .then((response) => {
         console.log("Achievement deleted successfully:", response);
-        onUpdate()
+        deleted();
       })
       .catch((error) => {
         console.error("Error deleting achievement:", error);
       });
+      onUpdate();
   };
   console.log(achievement?.like?.length);
   console.log(likeCount);
