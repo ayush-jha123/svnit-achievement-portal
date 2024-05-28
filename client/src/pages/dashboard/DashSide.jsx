@@ -24,8 +24,8 @@ export default function DashSide() {
             </Link>
           </li>
           <li>
-            <Link to="/Settings" className="flex text-2xl items-center text-gray-800 font-semibold hover:text-blue-600 transition-colors">
-              <FaCog className="mr-2" /> Settings
+            <Link to="/EditProfile" className="flex text-2xl items-center text-gray-800 font-semibold hover:text-blue-600 transition-colors">
+              <FaCog className="mr-2" /> Edit Profile
             </Link>
           </li>
           <li>

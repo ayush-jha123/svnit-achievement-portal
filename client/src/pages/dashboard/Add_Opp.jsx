@@ -5,12 +5,18 @@ import { useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const user = useSelector(state => state.user)
-  console.log(user.currentUser.name)
+  const user = useSelector(state => state.user);
   const navigate = useNavigate();
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, files } = e.target;
+    if (files) {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const achieve = {
@@ -29,40 +35,45 @@ export default function Add_Ach() {
     sanity
       .create(achieve)
       .then(() => {
-        navigate('/Opportunities', { replace: true })
+        navigate('/Opportunities', { replace: true });
       })
       .catch((err) => console.log(err));
-
   };
 
   return (
     <>
-      <div className="mt-12">
+      <div className="mt-20 px-4 sm:px-6 lg:px-8">
         <div className="md:grid md:grid-cols-3 md:gap-6" id="addAcv">
-          <div className="mt-5 md:col-span-2 md:mt-0">
-            <form>
+          <div className="md:col-span-3">
+            <h2 className="text-lg font-medium leading-6 text-gray-900">Add Opportunity</h2>
+            <p className="mt-1 text-sm text-gray-600">
+              Fill out the form below to add a new opportunity.
+            </p>
+          </div>
+          <div className="md:col-span-2 md:mt-0">
+            <form onSubmit={handleSubmit}>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                   <div>
                     <label
-                      for="first_name"
+                      htmlFor="title"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Oppertunity Title
+                      Opportunity Title
                     </label>
                     <input
                       type="text"
                       name="title"
                       id="title"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Oppertunity Title"
+                      placeholder="Opportunity Title"
                       onChange={handleChange}
                     />
                   </div>
 
                   <div>
                     <label
-                      for="first_name"
+                      htmlFor="participants"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       For Whom
@@ -79,30 +90,38 @@ export default function Add_Ach() {
 
                   <div>
                     <label
-                      for="first_name"
+                      htmlFor="description"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Description
                     </label>
-                    <input
-                      type="text"
+                    <textarea
                       name="description"
-                      id="first_name"
+                      id="description"
+                      rows="3"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Description"
                       onChange={handleChange}
-                    />
+                    ></textarea>
                   </div>
 
                   <div>
                     <label
-                      for="first_name"
+                      htmlFor="tags"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Tags
                     </label>
                     <div className="w-72">
-                      <select id="tags" name="tags" onChange={handleChange}>
+                      <select
+                        id="tags"
+                        name="tags"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={handleChange}
+                      >
+                        <option value="" disabled selected>
+                          Select a tag
+                        </option>
                         <option value="Placement">Placement</option>
                         <option value="Academics">Academics</option>
                         <option value="Extracurricular">Extracurricular</option>
@@ -113,15 +132,15 @@ export default function Add_Ach() {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="Date"
+                      htmlFor="openingdate"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Opening date/Tenure
+                      Opening Date/Tenure
                     </label>
                     <input
                       type="date"
                       name="openingdate"
-                      id="Date"
+                      id="openingdate"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       onChange={handleChange}
                     />
@@ -129,7 +148,7 @@ export default function Add_Ach() {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="Date"
+                      htmlFor="closingdate"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Closing Date
@@ -137,14 +156,15 @@ export default function Add_Ach() {
                     <input
                       type="date"
                       name="closingdate"
-                      id="Date"
+                      id="closingdate"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       onChange={handleChange}
                     />
                   </div>
+
                   <div>
                     <label
-                      for="first_name"
+                      htmlFor="applylink"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Apply Link
@@ -152,7 +172,7 @@ export default function Add_Ach() {
                     <input
                       type="text"
                       name="applylink"
-                      id="first_name"
+                      id="applylink"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Apply Link"
                       onChange={handleChange}
@@ -164,7 +184,6 @@ export default function Add_Ach() {
                   <button
                     type="submit"
                     className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    onClick={handleSubmit}
                   >
                     Submit
                   </button>

@@ -4,7 +4,7 @@ import Achivements from './pages/Achivements'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Opp from './pages/opp'
 import Dash from './pages/Dashboard'
-import Settings from './pages/dashboard/Settings'
+import EditProfile from './pages/dashboard/EditProfile'
 import YourAchivements from './pages/dashboard/YourAchivements'
 import YourOpp from './pages/dashboard/YourOpp'
 import Add_Ach from './pages/dashboard/Add_Ach'
@@ -29,7 +29,7 @@ function App() {
 
         <Route path='/YourAchivements' element={<YourAchivements />}></Route>
         <Route path='/YourOpp' element={<YourOpp />}></Route>
-        <Route path="/Settings" element={<Settings />}></Route>
+        <Route path="/EditProfile" element={<EditProfile />}></Route>
         <Route path="/Add_Ach" element={<Add_Ach />}></Route>
         <Route path="/Add_Opp" element={<Add_Opp />}></Route>
         <Route path="/Ach_card_details/:id" element={<AchDetails />}></Route>
