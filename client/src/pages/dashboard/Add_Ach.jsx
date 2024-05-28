@@ -7,8 +7,8 @@ export default function Add_Ach() {
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const toggle = useSelector((state) => state.post)
-  console.log(user.currentUser);
+  const toggle = useSelector((state) => state.post);
+  // console.log(user.currentUser);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,9 +25,9 @@ export default function Add_Ach() {
       date: formData.date,
       accredation: formData.accredation,
       imageurl: formData.imageurl,
-      tags: formData.tags
+      tags: formData.tags,
     };
-    console.log(achieve)
+    console.log(achieve);
     sanity
       .create(achieve)
       .then(() => {
@@ -128,36 +128,16 @@ export default function Add_Ach() {
                     >
                       Tags
                     </label>
-                    <input
-                      type="text"
-                      name="tags"
-                      id="first_name"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Tags"
-                      onChange={handleChange}
-                    />
+                    <div className="w-72">
+                      <select id="tags" name="tags" onChange={handleChange}>
+                        <option value="Placement">Placement</option>
+                        <option value="Academics">Academics</option>
+                        <option value="Extracurricular">Extracurricular</option>
+                        <option value="StartUp">StartUp</option>
+                      </select>
+                    </div>
                   </div>
 
-                  {/* <div>
-                    <label
-                      htmlFor="Description"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Description
-                    </label>
-                    <p className="mt-2 text-sm text-gray-500">
-                      (Write a few sentences about your achievement)
-                    </p>
-                    <div className="mt-1">
-                      <textarea
-                        id="Description"
-                        name="description"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        placeholder=""
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div> */}
                   <div>
                     <label
                       for="first_name"
