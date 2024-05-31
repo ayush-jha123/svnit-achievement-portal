@@ -47,6 +47,33 @@ export const signUp=async(req,res)=>{
 
 }
 
+export const updateUser=async (req,res)=>{
+    try {   
+    const {email,...rest}=req.body;
+    const result=await User.findOne({email});
+    if(!result) return res.status(404).json({message:'User is not looged in'});
+    const updatedUser=await User.findByIdAndUpdate(
+        req.body._id,
+        {
+            $set:{
+                name:rest?.name,
+                degree:rest?.degree,
+                department:rest?.department,
+                dateOfBirth:rest?.dateOfBirth,
+                linkedIn:rest?.linkedIn,
+                profilePicture:rest?.profilePicture
+            }
+        }
+        ,{new:true}
+    )
+    const {password,...remain}=updatedUser._doc;
+    res.status(200).json(remain);
+    } catch (error) {
+     res.status(500).json(error);   
+    }
+}
+
+
 export const google=async (req,res,next)=>{
     try {
         // console.log(req.body)

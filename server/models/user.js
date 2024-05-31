@@ -7,7 +7,13 @@ const userSchema=mongoose.Schema({
     profilePicture:{
         type:String,
         default:"https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg",
-    }
-})
+    },
+    degree:{type:String},
+    department:{type:String},
+    dateOfBirth:{type:Date},
+    linkedIn:{type:String},
+},{
+    timestamps:true
+});
 
 export default mongoose.model('Achiever',userSchema);

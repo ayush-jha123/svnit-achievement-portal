@@ -19,7 +19,7 @@ export default function Dashboard() {
           <div className="w-1/3 relative right-30 rounded-lg flex flex-col items-center">
             <img
               className="icon w-36 h-36 mb-[-3.25rem] z-10 rounded-full border-4 border-white shadow-lg"
-              src={avatar}
+              src={credentials.profilePicture}
               alt=""
               style={{ width: "150px", height: "150px" }}
             />
