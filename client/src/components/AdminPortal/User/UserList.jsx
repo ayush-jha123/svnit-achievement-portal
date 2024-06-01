@@ -4,7 +4,7 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const UserList = ({ users, onEdit, onDelete, setFilter, setSortField }) => {
     return (
-        <div className="w-full md:w-2/3 bg-white p-6 rounded-lg shadow-lg">
+        <div className="w-full  bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-4">User List</h2>
             <input
                 type="text"
@@ -43,7 +43,7 @@ const UserList = ({ users, onEdit, onDelete, setFilter, setSortField }) => {
                             </button>
                             <button
                                 className="text-red-500 hover:text-red-700"
-                                onClick={() => onDelete(user.id)}
+                                onClick={() => onDelete(user._id)}
                             >
                                 <FontAwesomeIcon icon={faTrash} />
                             </button>
