@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserList from './User/UserList';
 import UserForm from './User/UserForm';
 
@@ -8,16 +8,41 @@ const User = () => {
   const [filter, setFilter] = useState('');
   const [sortField, setSortField] = useState(null);
 
-  const addUser = (user) => {
-    setUsers([...users, { ...user, id: Date.now().toString() }]);
-  };
+  // const addUser = (user) => {
+  //   setUsers([...users, { ...user, id: Date.now().toString() }]);
+  // };
+ 
+  // const updateUser = (updatedUser) => {
+  //   setUsers(users.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
+  // };
+  const fetchUsers=async ()=>{
+    try {
+      fetch('/user/fetch').then(res=>{
+        res.json().then(users=>{
+          setUsers(users)
+        })
+      })
+    } catch (error) {
+      console.log(error)
+    }
+}
 
-  const updateUser = (updatedUser) => {
-    setUsers(users.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
-  };
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+  
+  
 
-  const deleteUser = (userId) => {
-    setUsers(users.filter((user) => user.id !== userId));
+  const deleteUser = async(userId) => {
+    try {
+      const res=await fetch(`/user/delete/${userId}`,{
+        method:'DELETE'
+      })
+      if(res.status===200) alert('User deleted sucessfully!!')
+      fetchUsers()
+    } catch (error) {
+      
+    }
   };
 
   const filteredUsers = users
@@ -33,20 +58,13 @@ const User = () => {
     <>
       <div className="min-h-screen bg-gray-100 p-8 w-4/5">
         <h1 className="heading text-3xl font-bold text-center mb-8">Admin User Management</h1>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full">
           <UserList
             users={filteredUsers}
             onEdit={setEditingUser}
             onDelete={deleteUser}
             setFilter={setFilter}
             setSortField={setSortField}
-            className="w-full md:w-1/2"
-          />
-          <UserForm
-            addUser={addUser}
-            updateUser={updateUser}
-            editingUser={editingUser}
-            setEditingUser={setEditingUser}
             className="w-full md:w-1/2"
           />
         </div>
