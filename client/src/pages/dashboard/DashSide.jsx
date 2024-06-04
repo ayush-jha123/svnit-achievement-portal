@@ -4,7 +4,7 @@ import { FaUser, FaTrophy, FaBullhorn, FaCog, FaSignOutAlt } from 'react-icons/f
 
 export default function DashSide() {
   return (
-    <div className="h-3/4 w-full max-w-sm mx-auto bg-gray-300 shadow-lg rounded-lg overflow-hidden mt-8">
+    <div className="h-auto w-full max-w-sm mx-auto bg-gray-300 shadow-lg rounded-lg overflow-hidden mt-8">
       <div className="px-6 py-4">
         <h2 className="text-3xl font-semibold text-gray-800 mb-20">Dashboard</h2>
         <ul className="space-y-10">

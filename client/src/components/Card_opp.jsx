@@ -71,7 +71,7 @@ export default function CardItem({ oppertunity, onUpdate }) {
   }, [oppertunity, currentUser]);
 
   return (
-    <Card className="mt-6 w-96 shadow-md rounded-md bg-slate-100 p-2">
+    <Card className="mt-6 w-80 shadow-md rounded-md bg-slate-100 p-2">
       <CardBody>
         <div className="flex justify-between">
           <svg
@@ -94,19 +94,19 @@ export default function CardItem({ oppertunity, onUpdate }) {
             </button>
           </div>
         </div>
-        <Typography variant="h5" color="blue-gray" className="mb-2 mx-5">
+        <Typography variant="h5" color="blue-gray" className="mb-2 mx-5 font-semibold uppercase">
           {oppertunity?.title}
         </Typography>
         <Typography className="mb-2 mx-5 hover:no-underline">
-          <b>Posted by:</b> {oppertunity?.participants}
+          <b>Posted for: </b> {oppertunity?.participants}
         </Typography>
         <Typography className="mb-2 mx-5 hover:no-underline">
-          <b>Apply Link:</b> {oppertunity?.applylink}
+          <b>Apply Link: </b> {oppertunity?.applylink}
         </Typography>
         <Typography className="mb-2 mx-5 hover:no-underline">
-          <b>Date:</b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
+          <b>Date: </b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
         </Typography>
-        <Typography className="mb-2 mx-5 hover:no-underline">{oppertunity?.description}</Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline"><b>Description: </b>{oppertunity?.description}</Typography>
       </CardBody>
       <CardFooter className="pt-0 flex justify-between mx-5">
         <Link to={`/Opp_card_details/${oppertunity?._id}`}>

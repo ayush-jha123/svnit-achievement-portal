@@ -38,7 +38,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="p-8 w-full">
+    <div className="p-8 w-full mt-12">
       <h1 className="heading text-3xl font-bold mb-4">Dashboard</h1>
       <div className="flex flex-col gap-4 w-full">
         <div className="flex w-full justify-between">

@@ -17,7 +17,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
 
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
-  const deleted= () => toast("Deleted Successfully");
+  const deleted = () => toast("Deleted Successfully");
   const handlelike = () => {
     const updateQuery = achievement?._id;
     let newLikeArray = [];
@@ -75,7 +75,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .catch((error) => {
         console.error("Error deleting achievement:", error);
       });
-      onUpdate();
+    onUpdate();
   };
   console.log(achievement?.like?.length);
   console.log(likeCount);
@@ -86,10 +86,10 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           <img className="w-full h-full" src={batman} />
         </div>
         <Link to={`/Ach_card_details/${achievement?._id}`}>
-          <span>{achievement?.title}</span>
+          <span className="uppercase font-semibold">{achievement?.title}</span>
         </Link>
       </div>
-      <p className="mt-3 mx-5 hover:no-underline">Posted By: {achievement?.postedby}</p>
+      <p className="mt-3 mx-5 hover:no-underline">Posted by: {achievement?.postedby}</p>
       <div className="ml-4 mt-2 text-base flex-grow">
         <p id="font" className="mb-2">
           <b>Name: </b>
@@ -100,7 +100,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           {achievement?.date}
         </p>
         <p id="font" className="mb-2">
-          <b>Achievement :</b> {achievement?.description}{" "}
+          <b>Achievement: </b> {achievement?.description}{" "}
         </p>
       </div>
       {/* <a id='view'>View more</a> */}

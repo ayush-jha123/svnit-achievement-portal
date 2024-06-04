@@ -11,37 +11,37 @@ const User = () => {
   // const addUser = (user) => {
   //   setUsers([...users, { ...user, id: Date.now().toString() }]);
   // };
- 
+
   // const updateUser = (updatedUser) => {
   //   setUsers(users.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
   // };
-  const fetchUsers=async ()=>{
+  const fetchUsers = async () => {
     try {
-      fetch('/user/fetch').then(res=>{
-        res.json().then(users=>{
+      fetch('/user/fetch').then(res => {
+        res.json().then(users => {
           setUsers(users)
         })
       })
     } catch (error) {
       console.log(error)
     }
-}
+  }
 
   useEffect(() => {
     fetchUsers()
   }, [])
-  
-  
 
-  const deleteUser = async(userId) => {
+
+
+  const deleteUser = async (userId) => {
     try {
-      const res=await fetch(`/user/delete/${userId}`,{
-        method:'DELETE'
+      const res = await fetch(`/user/delete/${userId}`, {
+        method: 'DELETE'
       })
-      if(res.status===200) alert('User deleted sucessfully!!')
+      if (res.status === 200) alert('User deleted sucessfully!!')
       fetchUsers()
     } catch (error) {
-      
+
     }
   };
 
@@ -56,7 +56,7 @@ const User = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-100 p-8 w-4/5">
+      <div className="min-h-screen bg-gray-100 p-8 w-4/5 mt-12">
         <h1 className="heading text-3xl font-bold text-center mb-8">Admin User Management</h1>
         <div className="w-full">
           <UserList
