@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import batman from '../../public/assets/bat.jpeg';
+import batman from '../../public/assets/forgot.png';
 import { useParams } from 'react-router-dom';
 import { sanity } from '../sanity';
 

@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import batman from "../../public/assets/bat.jpeg";
 import { sanity } from "../sanity";
 import CardAchievements from "../components/Card_ach.jsx";
 import Footer from "../components/Footer";

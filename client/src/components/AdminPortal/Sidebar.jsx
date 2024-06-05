@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
-import Image from "../../../public/assets/bat.jpeg";
 
 const Sidebar = ({ activeOption, onOptionClick }) => {
   const handleOptionClickLocal = (option) => {

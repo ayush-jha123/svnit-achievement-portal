@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import avatar from "../../public/assets/avatar.png";
 import DashSide from "./dashboard/DashSide";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import batman from "../../public/assets/bat.jpeg";
+import batman from "../../public/assets/forgot.png";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
