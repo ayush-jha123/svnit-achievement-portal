@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import Image from '../../../../public/assets/bat.jpeg';
+import Image from '../../../../public/assets/forgot.png';
 
 const RequestBox = () => {
   return (

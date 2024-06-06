@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import batman from '../../public/assets/bat.jpeg';
+import batman from '../../public/assets/forgot.png';
 import { useParams } from 'react-router-dom';
 import { sanity } from '../sanity';
 
@@ -29,7 +29,7 @@ const achCardDetails = () => {
 
   const achievement = filterAchievements[0];
   return (
-    <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4'>
+    <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4 mt-16'>
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="px-6 py-4">
           <h1 className="text-3xl font-bold text-center mb-4">{achievement.title}</h1>
@@ -38,7 +38,7 @@ const achCardDetails = () => {
           <div className="flex justify-center mb-4">
             <img className="w-80 h-80 object-cover shadow-lg" src={batman} alt="User Image" />
           </div>
-          <p className="text-gray-600 text-center">Email of user</p>
+          {/* <p className="text-gray-600 text-center">Email of user</p> */}
         </div>
       </div>
 

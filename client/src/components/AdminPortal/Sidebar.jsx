@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
-import Image from "../../../public/assets/bat.jpeg";
 
 const Sidebar = ({ activeOption, onOptionClick }) => {
   const handleOptionClickLocal = (option) => {
@@ -12,7 +11,7 @@ const Sidebar = ({ activeOption, onOptionClick }) => {
       <div
         className="relative flex h-[calc(100vh-10rem)] w-full max-w-[20rem] flex-col rounded-xl bg-[#223752] bg-clip-border p-4 shadow-xl shadow-blue-gray-900/5">
         <div className="p-4 mb-2">
-          <h5 className="name mb-2">
+          <h5 className="name mb-2 text-3xl">
             Administrator
           </h5>
         </div>
@@ -50,7 +49,7 @@ const Sidebar = ({ activeOption, onOptionClick }) => {
             </div>
           </div>
           <div onClick={() => handleOptionClickLocal('user')} role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-grey hover:bg-opacity-80 hover:text-white focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+            className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-grey hover:bg-opacity-80 hover:text-white focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
             <div className="grid mr-4 place-items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                 className="w-5 h-5">

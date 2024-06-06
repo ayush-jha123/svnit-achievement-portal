@@ -1,14 +1,7 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
-import { FaHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
 import { sanity } from "../sanity";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,10 +53,10 @@ export default function CardItem({ oppertunity}) {
     sanity
       .delete(deleteQuery)
       .then((response) => {
-        console.log("Achievement deleted successfully:", response);
+        console.log("Oppertunity deleted successfully:", response);
       })
       .catch((error) => {
-        console.error("Error deleting achievement:", error);
+        console.error("Error deleting oppertunity:", error);
       });
   };
 
@@ -110,11 +103,11 @@ export default function CardItem({ oppertunity}) {
         <Typography className="mb-2 mx-5 hover:no-underline">
           <b>Date:</b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
         </Typography>
-        <Typography className="mb-2 mx-5 hover:no-underline line-clamp-3">{oppertunity?.description}</Typography>
+        <Typography className="mb-2 mx-5 hover:no-underline">{oppertunity?.description}</Typography>
       </CardBody>
       <CardFooter className="pt-0 flex justify-between mx-5">
         <Link to={`/Opp_card_details/${oppertunity?._id}`}>
-          <Button size="sm" variant="text" className="flex items-center gap-2">
+          <button className="flex items-center gap-2 text-blue-500">
             Learn More
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -130,13 +123,12 @@ export default function CardItem({ oppertunity}) {
                 d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
               />
             </svg>
-          </Button>
+          </button>
         </Link>
         {currentUser._id===oppertunity.userid && (
         <button onClick={handleDelete}>
-          <MdDeleteOutline style={{ fontSize: "2em" }} />
+          <MdDeleteOutline className="text-2xl text-red-500" />
         </button>
-        )}
       </CardFooter>
     </Card>
   );

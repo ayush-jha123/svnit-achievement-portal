@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import batman from "../../public/assets/bat.jpeg";
 import { sanity } from "../sanity";
 import CardAchievements from "../components/Card_ach.jsx";
 import Footer from "../components/Footer";
@@ -36,6 +35,7 @@ const Achivements = () => {
     <div className="mt-20  w-full min-h-screen bg-[url('/assets/AchivementPageBG.svg')] bg-contain bg-no-repeat bg-top">
       <div className="text-4xl bg-transparent p-0 text-center mb-10">
         <h1>Achivements</h1>
+        <p className="text-xl opacity-50">(click on achievement title to see document of aggregation)</p>
       </div>
       <div className="flex p-[2vw] -mt-2">
         <Sidebar handler={handleSetTag} />

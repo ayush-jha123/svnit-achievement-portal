@@ -150,21 +150,14 @@ export default function Main() {
       </div>
       <div className="text-center text-4xl text-gray-700 mb-4">RECENT</div>
       <div className="text-center text-3xl font-bold text-gray-800 mb-12">ACHIEVEMENT</div>
-      <div className="flex justify-between items-center mb-4">
-        <button onClick={() => handleAchPageChange(-1)} disabled={currentAchPage === 0}>
-          <FaChevronLeft />
-        </button>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
-          {paginatedAchievements.map((achievement) => (
-            <CardAchievements
-              key={achievement._id}
-              achievement={achievement}
-            />
-          ))}
-        </div>
-        <button onClick={() => handleAchPageChange(1)} disabled={currentAchPage >= Math.ceil(achievements.length / itemsPerPage) - 1}>
-          <FaChevronRight />
-        </button>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
+        {achievements.map((achievement) => (
+          <CardAchievements
+            key={achievement._id}
+            achievement={achievement}
+            onUpdate={toggle}
+          />
+        ))}
       </div>
       <div className="text-center mb-12">
         <Link to="/Achivements" className="text-black bg-gray-400 hover:bg-blue-700 hover:text-white transition duration-300 ease-in-out px-4 py-2 rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
