@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import batman from '../../public/assets/forgot.png';
 import { useParams } from 'react-router-dom';
 import { sanity } from '../sanity';
+import { useSelector } from 'react-redux';
 
 
 const achCardDetails = () => {
@@ -14,6 +15,8 @@ const achCardDetails = () => {
       setAchievements(data);
     });
   }, []);
+  // const {achievements}=useSelector(state=>state.post)
+  // console.log(achievements)
 
   useEffect(() => {
     if (id && achievements.length > 0) {
@@ -26,7 +29,7 @@ const achCardDetails = () => {
   if (filterAchievements.length === 0) {
     return <div>Loading...</div>;
   }
-
+  console.log(achievements)
   const achievement = filterAchievements[0];
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4 mt-16'>
@@ -39,6 +42,7 @@ const achCardDetails = () => {
             <img className="w-80 h-80 object-cover shadow-lg" src={batman} alt="User Image" />
           </div>
           {/* <p className="text-gray-600 text-center">Email of user</p> */}
+          {/* <div>{achievement?.imageurl}</div> */}
         </div>
       </div>
 
