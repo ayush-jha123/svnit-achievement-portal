@@ -3,17 +3,19 @@ import batman from "../../public/assets/forgot.png";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiFillLike } from "react-icons/ai";
 import { sanity } from "../sanity";
 import { Typography } from "@material-tailwind/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { updateAchievements } from "../redux/posts/postSlice";
 
-const CardAchievements = ({ achievement, onUpdate }) => {
+const CardAchievements = ({ achievement}) => {
   const { currentUser } = useSelector((state) => state.user);
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const dispatch=useDispatch();
 
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
@@ -39,6 +41,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .commit()
       .then((response) => {
         console.log("Achievement updated successfully:", response);
+        dispatch(updateAchievements(response));
         setLikeToggle(!likeToggle); // Update local state first
         {
           likeToggle
@@ -50,7 +53,6 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .catch((error) => {
         console.error("Error updating achievement:", error);
       });
-    onUpdate();
   };
 
 
@@ -75,7 +77,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
       .catch((error) => {
         console.error("Error deleting achievement:", error);
       });
-    onUpdate();
+      onUpdate();
   };
   console.log(achievement?.like?.length);
   console.log(likeCount);
@@ -83,7 +85,7 @@ const CardAchievements = ({ achievement, onUpdate }) => {
     <div className="bg-white rounded-xl shadow-lg m-7 p-0 h-auto w-full max-w-md flex flex-col">
       <div className="bar flex items-center h-16 bg-[#9ed8ff] rounded-t-xl p-4 text-lg">
         <div className="rounded-full overflow-hidden w-20 h-20 bg-cover bg-center mr-2">
-          <img className="w-full h-full" src={batman} />
+          <img className="w-full h-full" src={currentUser?.profilePicture} />
         </div>
         <Link to={`/Ach_card_details/${achievement?._id}`}>
           <span className="uppercase font-semibold">{achievement?.title}</span>
@@ -99,8 +101,8 @@ const CardAchievements = ({ achievement, onUpdate }) => {
           <b>Date: </b>
           {achievement?.date}
         </p>
-        <p id="font" className="mb-2">
-          <b>Achievement: </b> {achievement?.description}{" "}
+        <p id="font" className="mb-2 line-clamp-4">
+          <b>Achievement :</b> {achievement?.description}{" "}
         </p>
       </div>
       {/* <a id='view'>View more</a> */}
