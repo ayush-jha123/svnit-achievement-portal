@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
-import batman from "../../public/assets/forgot.png";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillLike } from "react-icons/ai";
 import { sanity } from "../sanity";
-import { Typography } from "@material-tailwind/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { updateAchievements } from "../redux/posts/postSlice";
 
-const CardAchievements = ({ achievement}) => {
+const CardAchievements = ({ achievement }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
@@ -77,7 +75,7 @@ const CardAchievements = ({ achievement}) => {
       .catch((error) => {
         console.error("Error deleting achievement:", error);
       });
-      onUpdate();
+    onUpdate();
   };
   console.log(achievement?.like?.length);
   console.log(likeCount);
@@ -91,7 +89,7 @@ const CardAchievements = ({ achievement}) => {
           <span className="uppercase font-semibold">{achievement?.title}</span>
         </Link>
       </div>
-      <p className="mt-3 mx-5 hover:no-underline">Posted by: {achievement?.postedby}</p>
+      <p className="mt-3 mx-5 font-bold hover:no-underline">Posted by: {achievement?.postedby}</p>
       <div className="ml-4 mt-2 text-base flex-grow">
         <p id="font" className="mb-2">
           <b>Name: </b>

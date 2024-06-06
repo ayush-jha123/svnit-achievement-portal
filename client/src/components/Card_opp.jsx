@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateOppertunities } from "../redux/posts/postSlice";
 
-export default function CardItem({ oppertunity}) {
+export default function CardItem({ oppertunity }) {
   // console.log("oppn");
   // console.log(oppertunity);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const { currentUser } = useSelector(state => state.user);
@@ -97,6 +97,9 @@ export default function CardItem({ oppertunity}) {
       <h5 className="mb-2 mx-5 font-semibold uppercase text-blue-gray-700">
         {oppertunity?.title}
       </h5>
+      <p className="mb-2 mx-5">
+        <b>Posted by: </b> {oppertunity?.postedby}
+      </p>
       <p className="mb-2 mx-5">
         <b>Posted for: </b> {oppertunity?.participants}
       </p>
