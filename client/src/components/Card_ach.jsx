@@ -101,8 +101,8 @@ const CardAchievements = ({ achievement}) => {
           <b>Date: </b>
           {achievement?.date}
         </p>
-        <p id="font" className="mb-2 line-clamp-4">
-          <b>Achievement :</b> {achievement?.description}{" "}
+        <p id="font" className="mb-2">
+          <b>Achievement: </b> {achievement?.description}{" "}
         </p>
       </div>
       {/* <a id='view'>View more</a> */}

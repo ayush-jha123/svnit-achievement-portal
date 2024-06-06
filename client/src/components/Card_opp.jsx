@@ -106,7 +106,7 @@ export default function CardItem({ oppertunity}) {
       <p className="mb-2 mx-5">
         <b>Date: </b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
       </p>
-      <p className="mb-2 mx-5 line-clamp-3">
+      <p className="mb-2 mx-5">
         <b>Description: </b>{oppertunity?.description}
       </p>
       <div className="pt-0 flex justify-between mx-5">
@@ -129,11 +129,9 @@ export default function CardItem({ oppertunity}) {
             </svg>
           </button>
         </Link>
-        {currentUser._id===oppertunity?.userid && (
         <button onClick={handleDelete}>
           <MdDeleteOutline className="text-2xl text-red-500" />
         </button>
-        )}
       </div>
     </div>
   );
