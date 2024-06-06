@@ -4,14 +4,19 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { sanity } from "../sanity";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateOppertunities } from "../redux/posts/postSlice";
 
-export default function CardItem({ oppertunity, onUpdate }) {
+export default function CardItem({ oppertunity}) {
   // console.log("oppn");
   // console.log(oppertunity);
+  const dispatch=useDispatch();
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const { currentUser } = useSelector(state => state.user);
+  console.log('bro');
+  console.log(currentUser)
+  console.log(oppertunity)
   const handleLike = () => {
     const updateQuery = oppertunity?._id;
     let newLikeArray = [];
@@ -33,14 +38,13 @@ export default function CardItem({ oppertunity, onUpdate }) {
       .commit()
       .then((response) => {
         console.log("Oppertunity updated successfully:", response);
+        dispatch(updateOppertunities(response));
         setLikeToggle(!likeToggle); // Update local state first
         { likeToggle ? setLikeCount(likeCount - 1) : setLikeCount(likeCount + 1) }
       })
       .catch((error) => {
         console.error("Error updating oppertunity:", error);
       });
-
-    onUpdate()
   };
 
   const handleDelete = () => {

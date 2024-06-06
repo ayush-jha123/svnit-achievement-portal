@@ -5,31 +5,30 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { sanity } from "../../sanity.js";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { createAchievements, createOppertunities } from "../../redux/posts/postSlice.js";
 
 export default function Main() {
-  const [achievements, setAchievements] = useState([]);
-  const [oppertunity, setOppertunity] = useState([]);
-  const [update, setUpdate] = useState(false);
+  // const [update, setUpdate] = useState(false);
+  const dispatch=useDispatch();
+  const {achievements,oppertunities}=useSelector(state=>state.post);
+  const [visAch,setVisAch]=useState(achievements.slice(0,3));
+  const [visOpp,setVisOpp]=useState(oppertunities.slice(0,3));
+  useEffect(() => {
+    const skillsQuery = '*[_type=="achievement"]  | order(_createdAt desc)';
+    sanity.fetch(skillsQuery).then((data) => {
+      console.log(data);
+      dispatch(createAchievements(data));
+    });
+  }, []);
 
   useEffect(() => {
-    const skillsQuery = '*[_type=="achievement"]';
+    const skillsQuery = '*[_type=="oppertunities"]  | order(_createdAt desc)';
     sanity.fetch(skillsQuery).then((data) => {
-      setAchievements(data);
+      dispatch(createOppertunities(data));
     });
-  }, [update]);
+  }, []);
 
-  useEffect(() => {
-    const skillsQuery = '*[_type=="oppertunities"]';
-    sanity.fetch(skillsQuery).then((data) => {
-      setOppertunity(data);
-    });
-  }, [update]);
-
-  const toggle = () => {
-    setUpdate(!update);
-  };
-
-  console.log(achievements);
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
@@ -52,13 +51,12 @@ export default function Main() {
         </div>
       </div>
       <div className="text-center text-4xl text-gray-700 mb-4">RECENT</div>
-      <div className="text-center text-3xl font-bold text-gray-800 mb-12">Achievements</div>
+      <div className="text-center text-3xl font-bold text-gray-800 mb-12">ACHIEVEMENT</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
-        {achievements.map((achievement) => (
+        {visAch.map((achievement) => (
           <CardAchievements
             key={achievement._id}
             achievement={achievement}
-            onUpdate={toggle}
           />
         ))}
       </div>
@@ -70,11 +68,10 @@ export default function Main() {
       </div>
       <div className="text-center text-3xl font-bold text-gray-800 mb-12">Opportunities</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
-        {oppertunity.map((oppertunity) => (
+        {visOpp.map((oppertunity) => (
           <div key={oppertunity._id} className="">
             <Card
               oppertunity={oppertunity}
-              onUpdate={toggle}
             />
           </div>
         ))}
@@ -89,3 +86,4 @@ export default function Main() {
     </div>
   );
 }
+

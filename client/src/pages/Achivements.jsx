@@ -5,11 +5,12 @@ import CardAchievements from "../components/Card_ach.jsx";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Achivements = () => {
   const [achievements, setAchievements] = useState([]);
   const [filterAchievements, setFilterAchievements] = useState([])
-  const [update, setUpdate] = useState(false)
+  // const [update, setUpdate] = useState(false)
   const [tag, setTag] = useState(null)
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]';
@@ -17,7 +18,8 @@ const Achivements = () => {
       setAchievements(data);
       setFilterAchievements(data);
     });
-  }, [update]);
+  }, []);
+  // const {achievements}=useSelector(state=>state.post);
   useEffect(() => {
     if (tag) {
       const filteredAchievements = achievements.filter((achievement) => achievement.tags === tag);
@@ -28,9 +30,6 @@ const Achivements = () => {
   const handleSetTag = (newTag) => {
     setTag(newTag);
   };
-  const toggle = () => {
-    setUpdate(!update)
-  }
   return (
     <div className="mt-20  w-full min-h-screen bg-[url('/assets/AchivementPageBG.svg')] bg-contain bg-no-repeat bg-top">
       <div className="text-4xl bg-transparent p-0 text-center mb-10">
@@ -42,7 +41,7 @@ const Achivements = () => {
         {console.log(tag)}
         <div className="flex flex-wrap -mt-[5vh] p-0 animate-fadeInUp">
           {filterAchievements.map((achievement) => (
-            <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
+            <CardAchievements key={achievement._id} achievement={achievement} />
           ))}
         </div>
       </div>
