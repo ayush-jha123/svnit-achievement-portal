@@ -26,10 +26,10 @@ const oppCardDetails = () => {
 
   const opp = filterOppertunity[0];
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4 mt-12">
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="px-6 py-4">
-          <h1 className="text-3xl font-bold text-center mb-4">{opp.title}</h1>
+          <h1 className="text-3xl font-bold text-center mb-4 uppercase">{opp.title}</h1>
           <p className="text-gray-700 text-center mb-4">
             {opp.description}
           </p>
@@ -39,7 +39,7 @@ const oppCardDetails = () => {
         </div>
         <div className="bg-gray-200 p-4 rounded-md">
           <h3 className="text-lg font-bold">Posted for:{opp.participants}</h3>
-          <p className="text-gray-700">Email of user</p>
+          {/* <p className="text-gray-700">Email of user</p> */}
         </div>
       </div>
     </div>

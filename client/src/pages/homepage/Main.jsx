@@ -52,7 +52,7 @@ export default function Main() {
         </div>
       </div>
       <div className="text-center text-4xl text-gray-700 mb-4">RECENT</div>
-      <div className="text-center text-3xl font-bold text-gray-800 mb-12">ACHIEVEMENT</div>
+      <div className="text-center text-3xl font-bold text-gray-800 mb-12">Achievements</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {achievements.map((achievement) => (
           <CardAchievements
