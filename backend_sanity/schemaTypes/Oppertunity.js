@@ -40,6 +40,11 @@ export default{
             type:'string'
         },
         {
+            name:'userPicture',
+            title:'userPhoto',
+            type:'string'
+        },
+        {
           name: 'tags',
           title: 'Tags',
           type:'string'

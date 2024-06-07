@@ -13,7 +13,7 @@ const Achivements = () => {
   // const [update, setUpdate] = useState(false)
   const [tag, setTag] = useState(null)
   useEffect(() => {
-    const skillsQuery = '*[_type=="achievement"]';
+    const skillsQuery = '*[_type=="achievement"]  | order(_createdAt desc)';
     sanity.fetch(skillsQuery).then((data) => {
       setAchievements(data);
       setFilterAchievements(data);

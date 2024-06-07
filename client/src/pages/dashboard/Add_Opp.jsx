@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const user = useSelector(state => state.user);
+  const {currentUser} = useSelector(state => state.user);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,8 +21,9 @@ export default function Add_Ach() {
     e.preventDefault();
     const achieve = {
       _type: "oppertunities",
-      postedby: user.currentUser.name,
-      userid: user.currentUser._id,
+      postedby: currentUser?.name,
+      userid: currentUser?._id,
+      userPicture:currentUser?.profilePicture,
       title: formData.title,
       participants: formData.participants,
       description: formData.description,

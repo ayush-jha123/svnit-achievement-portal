@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import batman from "../../public/assets/forgot.png";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillLike } from "react-icons/ai";
 import { sanity } from "../sanity";
+import { Typography } from "@material-tailwind/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { updateAchievements } from "../redux/posts/postSlice";
@@ -14,7 +16,6 @@ const CardAchievements = ({ achievement }) => {
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const dispatch = useDispatch();
-
   const likeadded = () => toast("Like Added successfully");
   const likeremoved = () => toast("Like removed successfully");
   const deleted = () => toast("Deleted Successfully");
@@ -45,15 +46,16 @@ const CardAchievements = ({ achievement }) => {
           likeToggle
             ? setLikeCount(likeCount - 1)
             : setLikeCount(likeCount + 1);
-          { likeToggle ? likeremoved() : likeadded() }
+          {
+            likeToggle ? likeremoved() : likeadded();
+          }
         }
       })
       .catch((error) => {
         console.error("Error updating achievement:", error);
       });
   };
-
-
+ console.log(achievement)
   useEffect(() => {
     if (achievement?.like && achievement?.like.includes(currentUser?._id)) {
       setLikeToggle(true);
@@ -83,13 +85,21 @@ const CardAchievements = ({ achievement }) => {
     <div className="bg-white rounded-xl shadow-lg m-7 p-0 h-auto w-full max-w-md flex flex-col">
       <div className="bar flex items-center h-16 bg-[#9ed8ff] rounded-t-xl p-4 text-lg">
         <div className="rounded-full overflow-hidden w-20 h-20 bg-cover bg-center mr-2">
-          <img className="w-full h-full" src={currentUser?.profilePicture} />
+          {achievement.userPicture ? (
+            <img className="w-full h-full" src={achievement?.userPicture} />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-500 text-lg font-bold text-white text-[2rem]">
+              {achievement?.postedby?.charAt(0)?.toUpperCase()}
+            </div>
+          )}
         </div>
         <Link to={`/Ach_card_details/${achievement?._id}`}>
           <span className="uppercase font-semibold">{achievement?.title}</span>
         </Link>
       </div>
-      <p className="mt-3 mx-5 font-bold hover:no-underline">Posted by: {achievement?.postedby}</p>
+      <p className="mt-3 mx-5 hover:no-underline">
+        Posted by: {achievement?.postedby}
+      </p>
       <div className="ml-4 mt-2 text-base flex-grow">
         <p id="font" className="mb-2">
           <b>Name: </b>
