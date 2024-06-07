@@ -20,7 +20,7 @@ export default function YourOpp() {
   useEffect(() => {
     setFilteredOppertunities(
       opportunities.filter(
-        (oppertunity) => oppertunity.userid === user.currentUser._id
+        (oppertunity) => oppertunity.userid === user.currentUser?._id
       )
     );
   }, [opportunities]);
@@ -51,7 +51,7 @@ export default function YourOpp() {
           </div>
           <div>
             {filteredOppertunities.map((oppertunity) => (
-              <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
+              <Card key={oppertunity?._id} oppertunity={oppertunity} onUpdate={toggle} />
             ))}
           </div>
         </div>

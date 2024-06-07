@@ -46,7 +46,7 @@ const Oppertunity = () => {
             <div className="flex flex-wrap gap-5 -mt-[2vh] ml-5">
               {filterOppertunity.map((oppertunity) => (
                 <div className=''>
-                  <Card key={oppertunity._id} oppertunity={oppertunity} onUpdate={toggle} />
+                  <Card key={oppertunity?._id} oppertunity={oppertunity} onUpdate={toggle} />
                 </div>
               ))}
             </div>

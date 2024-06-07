@@ -26,7 +26,7 @@ const Dashboard = () => {
   console.log(oppertunities);
 
   const fetchUsers = async () => {
-    fetch("/user/fetch").then((res) => {
+    fetch("https://svnit-achievement-portal-2.onrender.com/user/fetch").then((res) => {
       res.json().then((users) => {
         // console.log(users)
         setTotalUsers(users.length);

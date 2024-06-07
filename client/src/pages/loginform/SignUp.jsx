@@ -30,7 +30,7 @@ export default function SignUp() {
     e.preventDefault();
     // add proxy at vite.config
     dispatch(signUpStart())
-    const res = await fetch("/user/signup", {
+    const res = await fetch("https://svnit-achievement-portal-2.onrender.com/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

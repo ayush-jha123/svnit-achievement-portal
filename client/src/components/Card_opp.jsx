@@ -13,10 +13,10 @@ export default function CardItem({ oppertunity }) {
   const dispatch = useDispatch();
   const [likeToggle, setLikeToggle] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  const { currentUser } = useSelector(state => state.user);
-  console.log('bro');
-  console.log(currentUser)
-  console.log(oppertunity)
+  const { currentUser } = useSelector((state) => state.user);
+  console.log("bro");
+  console.log(currentUser);
+  console.log(oppertunity);
   const handleLike = () => {
     const updateQuery = oppertunity?._id;
     let newLikeArray = [];
@@ -40,7 +40,11 @@ export default function CardItem({ oppertunity }) {
         console.log("Oppertunity updated successfully:", response);
         dispatch(updateOppertunities(response));
         setLikeToggle(!likeToggle); // Update local state first
-        { likeToggle ? setLikeCount(likeCount - 1) : setLikeCount(likeCount + 1) }
+        {
+          likeToggle
+            ? setLikeCount(likeCount - 1)
+            : setLikeCount(likeCount + 1);
+        }
       })
       .catch((error) => {
         console.error("Error updating oppertunity:", error);
@@ -110,7 +114,8 @@ export default function CardItem({ oppertunity }) {
         <b>Date: </b> {oppertunity?.openingdate} : {oppertunity?.closingdate}
       </p>
       <p className="mb-2 mx-5">
-        <b>Description: </b>{oppertunity?.description}
+        <b>Description: </b>
+        {oppertunity?.description}
       </p>
       <div className="pt-0 flex justify-between mx-5">
         <Link to={`/Opp_card_details/${oppertunity?._id}`}>
@@ -132,9 +137,11 @@ export default function CardItem({ oppertunity }) {
             </svg>
           </button>
         </Link>
-        <button onClick={handleDelete}>
-          <MdDeleteOutline className="text-2xl text-red-500" />
-        </button>
+        {currentUser?._id === oppertunity.userid && (
+          <button onClick={handleDelete}>
+            <MdDeleteOutline className="text-2xl text-red-500" />
+          </button>
+        )}
       </div>
     </div>
   );

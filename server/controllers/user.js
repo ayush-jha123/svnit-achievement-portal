@@ -13,7 +13,7 @@ export const signIn=async (req,res)=>{
 
         if(!Password) res.status(400).json('Incorrect Password');
 
-        const token=jwt.sign({email:result.email,id:result._id},'test',{expiresIn:'1h'})
+        const token=jwt.sign({email:result.email,id:result?._id},'test',{expiresIn:'1h'})
 
         return  res.status(200).json({result,token});
     } catch (error) {
@@ -24,6 +24,7 @@ export const signIn=async (req,res)=>{
 export const signUp=async(req,res)=>{
     
     const {name,email,password,confirmPassword}=req.body;
+    console.log(name);
     try {
         const userData=await User.findOne({email});
         
@@ -36,7 +37,7 @@ export const signUp=async(req,res)=>{
         // const result=await User.create({email,password:hashedPassword,name:`${firstName} ${lastName}`});
         const result=await User.create({email,password:hashedPassword,name});
 
-        const token=jwt.sign({email:result.email,id:result._id},'test',{expiresIn:'1h'});
+        const token=jwt.sign({email:result.email,id:result?._id},'test',{expiresIn:'1h'});
 
        return res.status(200).json({result,token});
         
@@ -53,7 +54,7 @@ export const updateUser=async (req,res)=>{
     const result=await User.findOne({email});
     if(!result) return res.status(404).json({message:'User is not looged in'});
     const updatedUser=await User.findByIdAndUpdate(
-        req.body._id,
+        req.body?._id,
         {
             $set:{
                 name:rest?.name,
@@ -80,7 +81,7 @@ export const google=async (req,res,next)=>{
         const user=await User.findOne({email:req.body.email})
         // console.log(user)
         if(user){
-           const token=jwt.sign({id:user._id},process.env.JWT_SECRET)
+           const token=jwt.sign({id:user?._id},process.env.JWT_SECRET)
            const {password:hashedPassword,...rest }=user._doc;
            const expiryDate=new Date(Date.now()+3600000);
            res.cookie('access_token',token,{httpOnly:true,expires:expiryDate}).status(200).json(rest);
@@ -91,7 +92,7 @@ export const google=async (req,res,next)=>{
             email:req.body.email,password:hashedPassword,profilePicture:req.body.photo 
         });
         await newUser.save();
-        const token=jwt.sign({id:newUser._id},process.env.JWT_SECRET)
+        const token=jwt.sign({id:newUser?._id},process.env.JWT_SECRET)
         const {password:hashedPassword2,...rest}=newUser._doc;
         const expiryDate=new Date(Date.now()+3600000);
         res.cookie('access_token',token,{

@@ -51,7 +51,7 @@ export default function EditProfile() {
     // add proxy at vite.config
     try {
       // dispatch(signInStart());
-      const res=await fetch('/user/update',{
+      const res=await fetch('https://svnit-achievement-portal-2.onrender.com/user/update',{
         method:'POST',
         headers:{
           'Content-Type':'application/json',

@@ -55,7 +55,7 @@ export default function Main() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {visAch.map((achievement) => (
           <CardAchievements
-            key={achievement._id}
+            key={achievement?._id}
             achievement={achievement}
           />
         ))}
@@ -69,7 +69,7 @@ export default function Main() {
       <div className="text-center text-3xl font-bold text-gray-800 mb-12">Opportunities</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {visOpp.map((oppertunity) => (
-          <div key={oppertunity._id} className="">
+          <div key={oppertunity?._id} className="">
             <Card
               oppertunity={oppertunity}
             />

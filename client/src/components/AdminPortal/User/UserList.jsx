@@ -43,7 +43,7 @@ const UserList = ({ users, onEdit, onDelete, setFilter, setSortField }) => {
                             </button>
                             <button
                                 className="text-red-500 hover:text-red-700"
-                                onClick={() => onDelete(user._id)}
+                                onClick={() => onDelete(user?._id)}
                             >
                                 <FontAwesomeIcon icon={faTrash} />
                             </button>

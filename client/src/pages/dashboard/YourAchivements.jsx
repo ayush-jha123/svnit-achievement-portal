@@ -18,7 +18,7 @@ export default function YourAchivements() {
   }, [update]);
 
   useEffect(() => {
-    setFilteredAchievements(achievements.filter((achievement) => achievement.userid === user.currentUser._id));
+    setFilteredAchievements(achievements.filter((achievement) => achievement.userid === user.currentUser?._id));
   }, [achievements])
 
   const toggle = () => {
@@ -45,7 +45,7 @@ export default function YourAchivements() {
           </div>
           <div>
             {filteredAchievements.map((achievement) => (
-              <CardAchievements key={achievement._id} achievement={achievement} onUpdate={toggle} />
+              <CardAchievements key={achievement?._id} achievement={achievement} onUpdate={toggle} />
             ))}
           </div>
         </div>
