@@ -19,7 +19,7 @@ const OAuth = () => {
           const result=await signInWithPopup(auth,provider)
           console.log(result)
           dispatch(signInStart());
-          const res=await fetch('/user/google',{
+          const res=await fetch('https://svnit-achievement-portal-2.onrender.com/user/google',{
             method:'POST',
             headers:{
               'Content-Type':'application/json',

@@ -17,7 +17,7 @@ const User = () => {
   // };
   const fetchUsers = async () => {
     try {
-      fetch('/user/fetch').then(res => {
+      fetch('https://svnit-achievement-portal-2.onrender.com/user/fetch').then(res => {
         res.json().then(users => {
           setUsers(users)
         })
@@ -35,7 +35,7 @@ const User = () => {
 
   const deleteUser = async (userId) => {
     try {
-      const res = await fetch(`/user/delete/${userId}`, {
+      const res = await fetch(`https://svnit-achievement-portal-2.onrender.com/user/delete/${userId}`, {
         method: 'DELETE'
       })
       if (res.status === 200) alert('User deleted sucessfully!!')
