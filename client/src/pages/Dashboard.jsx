@@ -3,6 +3,7 @@ import DashSide from "./dashboard/DashSide";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { urlFor } from "../sanity";
+import moment from "moment";
 export default function Dashboard() {
   const [credentials, setCredentials] = useState({});
   const { currentUser } = useSelector((state) => state.user);
@@ -43,17 +44,17 @@ export default function Dashboard() {
             </div>
             <div className="flex justify-between w-full mb-10">
               <div className="text-3xl font-normal leading-tight text-[#75b7e5]">
-                Date of Birth <div className="text-xl font-normal leading-tight text-[#d2e5f3]">02 Jan 2005</div>
+                Date of Birth <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{moment(credentials.dateOfBirth).utc().format('YYYY-MM-DD')}</div>
               </div>
               <div className="deg text-3xl font-normal leading-tight text-[#75b7e5]">
                 Degree <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.degree}</div>
               </div>
             </div>
-            {/* <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full">
               <div className="email text-2xl font-normal leading-tight text-[#75b7e5]">
-                Institute Email <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.userid}</div>
+                LinkedIn <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.linkedIn}</div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       ) : <div className="text-center text-xl text-red-600">Please Login to see your dashboard</div>}
