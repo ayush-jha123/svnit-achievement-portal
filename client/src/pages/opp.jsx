@@ -12,7 +12,7 @@ const Oppertunity = () => {
   const [filterOppertunity, setFilterOppertunity] = useState([]);
   const [update, setUpdate] = useState(false)
   useEffect(() => {
-    const skillsQuery = '*[_type=="oppertunities"]';
+    const skillsQuery ='*[_type=="oppertunities"]  | order(_createdAt desc)';
     sanity.fetch(skillsQuery).then((data) => {
       setOppertunity(data);
       setFilterOppertunity(data)

@@ -13,6 +13,7 @@ import {
   } from "../../redux/user/userSlice";
   import { useDispatch } from "react-redux";
   import { Link, useNavigate } from "react-router-dom";
+import OAuth from "./OAuth";
   
   export default function SignIn() {
     const dispatch = useDispatch();
@@ -111,6 +112,7 @@ import {
             }
             containerProps={{ className: "-ml-2.5" }}
           />
+          <OAuth/>
           <Button className="mt-6 bg-black" fullWidth onClick={handleSubmit}>
             sign in
           </Button>

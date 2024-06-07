@@ -14,6 +14,11 @@ export default{
             type:'string'
         },
         {
+            name:'userPicture',
+            title:'userPhoto',
+            type:'string'
+        },
+        {
             name:'userid',
             title:'UserId',
             type:'string'
@@ -49,13 +54,18 @@ export default{
           title: 'Tags',
           type:'string'
         },
+        // {
+        //     name:'imageurl',
+        //     title:'RelatedImages',
+        //     type:'image',
+        //     options:{
+        //         hotspot:true
+        //     }
+        // },
         {
-            name:'imageurl',
-            title:'RelatedImages',
-            type:'image',
-            options:{
-                hotspot:true
-            }
+            name:'achievementdetails',
+            title:'AchievementDetails',
+            type:'string'
         },
     ]
 }

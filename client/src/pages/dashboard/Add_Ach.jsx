@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useDropzone } from "react-dropzone";
 import { sanity } from "../../sanity";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
   const [imageFile, setImageFile] = useState(null);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const {currentUser} = useSelector((state) => state.user);
   const toggle = useSelector((state) => state.post);
   const navigate = useNavigate();
 
@@ -32,14 +34,15 @@ export default function Add_Ach() {
     e.preventDefault();
     const achieve = {
       _type: "achievement",
-      postedby: user?.currentUser.name,
-      userid: user?.currentUser._id,
+      postedby: currentUser?.name,
+      userid: currentUser?._id,
+      userPicture:currentUser?.profilePicture,
       title: formData.title,
       body: formData.body,
       description: formData.description,
       date: formData.date,
       accredation: formData.accredation,
-      imageurl: formData.imageurl,
+      achievementdetails: formData.achievementdetails,
       tags: formData.tags,
     };
     console.log(achieve);
@@ -153,7 +156,7 @@ export default function Add_Ach() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="block text-sm font-medium text-gray-700">
                       Document of Accreditation
                     </label>
@@ -199,7 +202,9 @@ export default function Add_Ach() {
                         />
                       </div>
                     )}
-                  </div>
+                  </div> */}
+                  <p className="text-lg">AchievementDetails</p>
+                  <ReactQuill theme="snow" onChange={(data) => setRecipe({ ...formData, achievementdetails: data })}  className="w-full"/>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button

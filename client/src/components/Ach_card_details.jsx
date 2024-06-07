@@ -40,9 +40,10 @@ const achCardDetails = () => {
           <p className="text-gray-700 text-center mb-4">{achievement.description}</p>
           <div className="flex justify-center mb-4">
             <img className="w-80 h-80 object-cover shadow-lg" src={batman} alt="User Image" />
+            <div dangerouslySetInnerHTML={{__html:achievement.achievementdetails}}/>
           </div>
-          {/* <p className="text-gray-600 text-center">Email of user</p> */}
-          {/* <div>{achievement?.imageurl}</div> */}
+          {/* <p className="text-gray-600 text-center">Email of user</p> 
+           <div>{achievement?.imageurl}</div> */}
         </div>
       </div>
 
