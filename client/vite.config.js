@@ -18,7 +18,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/user':{
-        target:'http://localhost:6000',
+        target:'https://svnit-achievement-portal-2.onrender.com',
         secure:false,
       },
     },

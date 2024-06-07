@@ -17,7 +17,7 @@ const postSlice=createSlice({
             console.log(state.oppertunities);
         },
         updateAchievements: (state, action) => {
-            const index = state.achievements.findIndex(achievement => achievement._id === action.payload._id);
+            const index = state.achievements.findIndex(achievement => achievement?._id === action.payload?._id);
             if (index !== -1) {
                 state.achievements[index] = action.payload;
             } else {
@@ -26,7 +26,7 @@ const postSlice=createSlice({
             console.log(state.achievements);
         },
         updateOpportunities: (state, action) => {
-            const index = state.opportunities.findIndex(opportunity => opportunity._id === action.payload._id);
+            const index = state.opportunities.findIndex(opportunity => opportunity?._id === action.payload?._id);
             if (index !== -1) {
                 state.opportunities[index] = action.payload;
             } else {

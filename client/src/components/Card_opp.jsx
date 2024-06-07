@@ -137,7 +137,7 @@ export default function CardItem({ oppertunity }) {
             </svg>
           </button>
         </Link>
-        {currentUser._id === oppertunity.userid && (
+        {currentUser?._id === oppertunity.userid && (
           <button onClick={handleDelete}>
             <MdDeleteOutline className="text-2xl text-red-500" />
           </button>

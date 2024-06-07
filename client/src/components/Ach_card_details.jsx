@@ -20,7 +20,7 @@ const achCardDetails = () => {
 
   useEffect(() => {
     if (id && achievements.length > 0) {
-      const filteredAchievements = achievements.filter((achievement) => achievement._id === id);
+      const filteredAchievements = achievements.filter((achievement) => achievement?._id === id);
       console.log("Filtered achievements: ", filteredAchievements); // Log filtered achievements
       setFilterAchievements(filteredAchievements);
     }

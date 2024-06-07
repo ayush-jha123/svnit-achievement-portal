@@ -41,7 +41,7 @@ const Achivements = () => {
         {console.log(tag)}
         <div className="flex flex-wrap -mt-[5vh] p-0 animate-fadeInUp">
           {filterAchievements.map((achievement) => (
-            <CardAchievements key={achievement._id} achievement={achievement} />
+            <CardAchievements key={achievement?._id} achievement={achievement} />
           ))}
         </div>
       </div>

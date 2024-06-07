@@ -15,7 +15,7 @@ const oppCardDetails = () => {
 
   useEffect(() => {
     if (id && oppertunity.length > 0) {
-      const filteredoppn = oppertunity.filter((oppertunity) => oppertunity._id === id);
+      const filteredoppn = oppertunity.filter((oppertunity) => oppertunity?._id === id);
       setFilterOppertunity(filteredoppn);
     }
   }, [id, oppertunity]);
