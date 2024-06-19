@@ -32,7 +32,7 @@ export default function Main() {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
-      <div className="text-center text-5xl bg-purple-700">
+      <div className="text-center text-5xl bg-red-600">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
       <div className="text-center text-3xl mb-5">SURAT</div>
