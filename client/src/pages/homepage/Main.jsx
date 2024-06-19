@@ -10,10 +10,10 @@ import { createAchievements, createOppertunities } from "../../redux/posts/postS
 
 export default function Main() {
   // const [update, setUpdate] = useState(false);
-  const dispatch=useDispatch();
-  const {achievements,oppertunities}=useSelector(state=>state.post);
-  const [visAch,setVisAch]=useState(achievements.slice(0,3));
-  const [visOpp,setVisOpp]=useState(oppertunities.slice(0,3));
+  const dispatch = useDispatch();
+  const { achievements, oppertunities } = useSelector(state => state.post);
+  const [visAch, setVisAch] = useState(achievements.slice(0, 3));
+  const [visOpp, setVisOpp] = useState(oppertunities.slice(0, 3));
   useEffect(() => {
     const skillsQuery = '*[_type=="achievement"]  | order(_createdAt desc)';
     sanity.fetch(skillsQuery).then((data) => {
@@ -32,7 +32,7 @@ export default function Main() {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
-      <div className="text-center text-5xl bg-orange-500">
+      <div className="text-center text-5xl bg-purple-700">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
       <div className="text-center text-3xl mb-5">SURAT</div>
