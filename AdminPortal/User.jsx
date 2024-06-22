@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import UserList from './User/UserList';
-import UserForm from './User/UserForm';
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -8,13 +7,6 @@ const User = () => {
   const [filter, setFilter] = useState('');
   const [sortField, setSortField] = useState(null);
 
-  // const addUser = (user) => {
-  //   setUsers([...users, { ...user, id: Date.now().toString() }]);
-  // };
-
-  // const updateUser = (updatedUser) => {
-  //   setUsers(users.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
-  // };
   const fetchUsers = async () => {
     try {
       fetch('https://svnit-achievement-portal-2.onrender.com/user/fetch').then(res => {

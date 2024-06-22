@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Graph from "./Dashboard/Graph";
 import Catalog from "./Dashboard/Catalog";
-import { sanity } from "../../sanity";
+import { sanity } from "../client/src/sanity";
 
 const Dashboard = () => {
   const [totalPosts, setTotalPosts] = useState(0);
