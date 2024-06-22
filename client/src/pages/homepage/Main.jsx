@@ -32,16 +32,16 @@ export default function Main() {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
-      <div className="text-center text-4xl font-bold">
+      <div className="text-center text-3xl font-semibold">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
       <div className="text-center text-3xl mb-5 mt-2 font-semibold">SURAT</div>
       <div className="text-center text-4xl mb-5 font-medium">ACHIEVEMENT PORTAL</div>
       <div className="flex flex-col md:flex-row justify-center mb-12">
         <div className="w-full md:w-2/3 flex justify-center">
-        <img src="./assets/homepage.jpg" alt="Homepage Image" className="w-1/2 md:w-2/3 h-auto rounded shadow-lg" />
+          <img src="./assets/homepage.jpg" alt="Homepage Image" className="w-1/2 md:w-2/3 h-[550px] rounded-sm shadow-lg" />
         </div>
-        <div className="w-full md:w-full text-center md:text-left px-4 mt-48" >
+        <div className="w-full md:w-full text-center md:text-left px-4 mt-40" >
           <p className="text-gray-800 text-4xl mb-4" >Achievement through effort or skill</p>
           <p className="text-gray-800 text-lg">
             It's possible this refers to a particular writing instruction or activity, like sorting
@@ -66,7 +66,7 @@ export default function Main() {
         </Link>
 
       </div>
-      <div className="text-center text-3xl font-bold text-gray-800 mb-12">Opportunities</div>
+      <div className="text-center text-3xl font-bold text-gray-800 mb-12">OPPORTUNITIES</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {visOpp.map((oppertunity) => (
           <div key={oppertunity?._id} className="">
