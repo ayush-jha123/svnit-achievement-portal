@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './AdminPortal.css';
-import Sidebar from '../../../AdminPortal/Sidebar';
-import Dashboard from '../../../AdminPortal/Dashboard';
-import Request from '../../../AdminPortal/Request';
-import User from '../../../AdminPortal/User';
-import Settings from '../../../AdminPortal/Settings';
+import Sidebar from '../components/Sidebar';
+import Dashboard from '../components/Dashboard';
+import Request from '../components/Request';
+import User from '../components/User';
+import Settings from '../components/Settings';
 
 const AdminPortal = () => {
   const [activeOption, setActiveOption] = useState('dashboard'); // Initially render Dashboard

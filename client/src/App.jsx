@@ -8,7 +8,6 @@ import EditProfile from './pages/dashboard/EditProfile'
 import YourAchivements from './pages/dashboard/YourAchivements'
 import YourOpp from './pages/dashboard/YourOpp'
 import Add_Ach from './pages/dashboard/Add_Ach'
-import AdminPortal from './pages/AdminPortal'
 import LoginForm from './pages/loginform/LoginForm'
 import Homepage from './pages/homepage/Homepage'
 import AchDetails from './components/Ach_card_details'
@@ -35,8 +34,6 @@ function App() {
         <Route path="/Ach_card_details/:id" element={<AchDetails />}></Route>
         <Route path="/Opp_card_details/:id" element={<OppDetails />}></Route>
 
-
-        <Route path='/Admin' element={< AdminPortal />}></Route>
         <Route path='/Login' element={< LoginForm />}></Route>
         <Route path='/Login/signin' element={< SignIn />}></Route>
       </Routes>
