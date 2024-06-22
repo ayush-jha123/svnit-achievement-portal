@@ -32,17 +32,17 @@ export default function Main() {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
-      <div className="text-center text-5xl bg-red-600">
+      <div className="text-center text-4xl font-bold">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
-      <div className="text-center text-3xl mb-5">SURAT</div>
-      <div className="text-center text-4xl font-bold">ACHIEVEMENT PORTAL</div>
-      <div className="flex flex-col md:flex-row items-center justify-center mb-12">
+      <div className="text-center text-3xl mb-5 mt-2 font-semibold">SURAT</div>
+      <div className="text-center text-4xl mb-5 font-medium">ACHIEVEMENT PORTAL</div>
+      <div className="flex flex-col md:flex-row justify-center mb-12">
         <div className="w-full md:w-2/3 flex justify-center">
-          <img src="./assets/homepage.jpg" alt="" className="w-2/3 md:w-3/4 h-auto rounded-lg shadow-lg" />
+        <img src="./assets/homepage.jpg" alt="Homepage Image" className="w-1/2 md:w-2/3 h-auto rounded shadow-lg" />
         </div>
-        <div className="w-full md:w-full text-center md:text-left px-4">
-          <p className="text-gray-800 text-4xl mb-4">Achievement through effort or skill</p>
+        <div className="w-full md:w-full text-center md:text-left px-4 mt-48" >
+          <p className="text-gray-800 text-4xl mb-4" >Achievement through effort or skill</p>
           <p className="text-gray-800 text-lg">
             It's possible this refers to a particular writing instruction or activity, like sorting
             persuasive paragraphs based on the strength of their arguments. In such cases the specific

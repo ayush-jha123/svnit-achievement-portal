@@ -27,7 +27,7 @@ const Sidebar = ({ handler }) => {
         </svg>
       </button>
 
-      <div className={`sidebar ${sidebarOpen ? 'block' : 'hidden'} md:block h-[50vh] w-full max-w-[300px] bg-[#9ed8ff] overflow-auto z-40 fixed md:sticky top-32 shadow-xl animate-fadeIn`}>
+      <div className={`sidebar ${sidebarOpen ? 'block' : 'hidden'} md:block h-[60vh] w-full max-w-[300px] bg-[#9ED8FF] overflow-auto z-40 fixed md:sticky top-32 shadow-xl animate-fadeIn rounded-md`}>
         <ul id="list" className="text-[2vw] list-none m-0 p-0">
           <li className="text-left">
             <span>

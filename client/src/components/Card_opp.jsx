@@ -72,7 +72,7 @@ export default function CardItem({ oppertunity }) {
   }, [oppertunity, currentUser]);
 
   return (
-    <div className="mt-6 w-80 shadow-md rounded-md bg-slate-100 p-4">
+    <div className="mt-6 w-80 h-96 shadow-md rounded-md overflow-hidden bg-slate-100 p-4">
       <div className="flex justify-between">
         <svg
           xmlns="http://www.w3.org/2000/svg"
