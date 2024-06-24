@@ -32,11 +32,11 @@ export default function Main() {
 
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
-      <div className="text-center text-3xl font-semibold">
+      <div className="text-center sm:text-3xl text-1.6rem font-semibold">
         SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
-      <div className="text-center text-3xl mb-5 mt-2 font-semibold">SURAT</div>
-      <div className="text-center text-4xl mb-5 font-medium">ACHIEVEMENT PORTAL</div>
+      <div className="text-center sm:text-3xl text-1.6rem mb-5 mt-2 font-semibold">SURAT</div>
+      <div className="text-center sm:text-4xl text-1.6rem mb-5 font-medium">ACHIEVEMENT PORTAL</div>
       <div className="flex flex-col md:flex-row justify-center mb-12">
         <div className="w-full md:w-2/3 flex justify-center">
           <img src="./assets/homepage.jpg" alt="Homepage Image" className="w-1/2 md:w-2/3 h-[550px] rounded-sm shadow-lg" />

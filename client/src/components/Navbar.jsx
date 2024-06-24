@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbuttons from "./NavBarButton/Navbuttons";
 import Navbutton from "./NavBarButton/Navbutton";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import { Avatar } from "@material-tailwind/react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [marginLeft, setMarginLeft] = useState("0rem");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -22,6 +23,36 @@ export default function Navbar() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 400) {
+        setMarginLeft("3rem");
+      } 
+      else if (width < 600) {
+        setMarginLeft("7rem");
+      }else if (width < 800 && width >= 750) {
+        setMarginLeft("26rem");
+      } else if (width < 750 ) {
+        setMarginLeft("20rem");
+      } else if (width < 700) {
+        setMarginLeft("20rem");
+      } 
+      else {
+        setMarginLeft("0rem");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call it initially to set the initial value
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const divStyle = {
+    marginLeft: marginLeft,
   };
 
   return (
@@ -38,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <Navbuttons />
         </div>
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center" style={divStyle}>
           <button className="outline-none mobile-menu-button" onClick={toggleMenu}>
             <svg
               className="w-6 h-6 text-gray-500"
@@ -69,20 +100,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className={`mobile-menu ${menuOpen ? 'flex' : 'hidden'} md:hidden mt-20 justify-center pl-20 bg-gray-400`}>
+      <div className={`mobile-menu ${menuOpen ? "flex" : "hidden"} md:hidden mt-20 justify-center pl-20 bg-gray-400`}>
         <Navbuttons />
       </div>
-
-      <style jsx>{` 
-        .mobile-menu-button {
-          display: none;
-        }
-        @media (max-width: 768px) {
-          .mobile-menu-button {
-            display: block;
-          }
-        }
-      `}</style>
     </>
   );
 }
