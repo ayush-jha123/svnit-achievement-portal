@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Add_Ach() {
   const [formData, setFormData] = useState({});
-  const {currentUser} = useSelector(state => state.user);
+  const { currentUser } = useSelector(state => state.user);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ export default function Add_Ach() {
       _type: "oppertunities",
       postedby: currentUser?.name,
       userid: currentUser?._id,
-      userPicture:currentUser?.profilePicture,
+      userPicture: currentUser?.profilePicture,
       title: formData.title,
       participants: formData.participants,
       description: formData.description,
@@ -62,7 +62,7 @@ export default function Add_Ach() {
                     >
                       Opportunity Title
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="title"
                       id="title"
@@ -79,7 +79,7 @@ export default function Add_Ach() {
                     >
                       For Whom
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="participants"
                       id="participants"
@@ -96,7 +96,7 @@ export default function Add_Ach() {
                     >
                       Description
                     </label>
-                    <textarea
+                    <textarea required
                       name="description"
                       id="description"
                       rows="3"
@@ -114,7 +114,7 @@ export default function Add_Ach() {
                       Tags
                     </label>
                     <div className="w-72">
-                      <select
+                      <select required
                         id="tags"
                         name="tags"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -138,7 +138,7 @@ export default function Add_Ach() {
                     >
                       Opening Date/Tenure
                     </label>
-                    <input
+                    <input required
                       type="date"
                       name="openingdate"
                       id="openingdate"
@@ -154,7 +154,7 @@ export default function Add_Ach() {
                     >
                       Closing Date
                     </label>
-                    <input
+                    <input required
                       type="date"
                       name="closingdate"
                       id="closingdate"
@@ -170,7 +170,7 @@ export default function Add_Ach() {
                     >
                       Apply Link
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="applylink"
                       id="applylink"

@@ -10,7 +10,7 @@ export default function Add_Ach() {
   const [formData, setFormData] = useState({});
   const [imageFile, setImageFile] = useState(null);
   const dispatch = useDispatch();
-  const {currentUser} = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   const toggle = useSelector((state) => state.post);
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export default function Add_Ach() {
       _type: "achievement",
       postedby: currentUser?.name,
       userid: currentUser?.userid,
-      userPicture:currentUser?.profilePicture,
+      userPicture: currentUser?.profilePicture,
       title: formData.title,
       body: formData.body,
       description: formData.description,
@@ -76,7 +76,7 @@ export default function Add_Ach() {
                     >
                       Achievement Title
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="title"
                       id="title"
@@ -92,7 +92,7 @@ export default function Add_Ach() {
                     >
                       Recognizing Body
                     </label>
-                    <input
+                    <input required
                       type="text"
                       name="body"
                       id="body"
@@ -109,7 +109,7 @@ export default function Add_Ach() {
                       Tags
                     </label>
                     <div className="w-72">
-                      <select
+                      <select required
                         id="tags"
                         name="tags"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -132,7 +132,7 @@ export default function Add_Ach() {
                     >
                       Description
                     </label>
-                    <textarea
+                    <textarea required
                       name="description"
                       id="description"
                       rows="3"
@@ -148,7 +148,7 @@ export default function Add_Ach() {
                     >
                       Date of Achievement
                     </label>
-                    <input
+                    <input required
                       type="date"
                       name="date"
                       id="date"
@@ -204,7 +204,7 @@ export default function Add_Ach() {
                     )}
                   </div> */}
                   <p className="text-lg">AchievementDetails</p>
-                  <ReactQuill theme="snow" onChange={(data) => setRecipe({ ...formData, achievementdetails: data })}  className="w-full"/>
+                  <ReactQuill theme="snow" onChange={(data) => setRecipe({ ...formData, achievementdetails: data })} className="w-full" />
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
