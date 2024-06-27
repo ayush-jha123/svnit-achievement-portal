@@ -28,18 +28,19 @@ export default function Navbar() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 400) {
-        setMarginLeft("3rem");
+      if (width < 450) {
+        setMarginLeft("0rem");
       } 
-      else if (width < 600) {
-        setMarginLeft("7rem");
-      }else if (width < 800 && width >= 750) {
-        setMarginLeft("26rem");
-      } else if (width < 750 ) {
-        setMarginLeft("20rem");
-      } else if (width < 700) {
-        setMarginLeft("20rem");
-      } 
+      else if (width >= 450 && width < 767) {
+        setMarginLeft("-15vh");
+      }
+      // }else if (width < 800 && width >= 750) {
+      //   setMarginLeft("26rem");
+      // } else if (width < 750 ) {
+      //   setMarginLeft("20rem");
+      // } else if (width < 700) {
+      //   setMarginLeft("20rem");
+      // } 
       else {
         setMarginLeft("0rem");
       }
@@ -69,7 +70,23 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <Navbuttons />
         </div>
-        <div className="md:hidden flex items-center" style={divStyle}>
+        
+        <div style={divStyle}>
+          {currentUser ? (
+            <button
+              onClick={handleLogout}
+              className="text-black hover:text-gray-700 transition-all ease-in-out"
+              
+            >
+              LOG OUT
+            </button>
+          ) : (
+            <Link to={"/Login"} className="text-black no-underline">
+              <Navbutton title="LOG IN" />
+            </Link>
+          )}
+        </div>
+        <div className="md:hidden flex items-center" >
           <button className="outline-none mobile-menu-button" onClick={toggleMenu}>
             <svg
               className="w-6 h-6 text-gray-500"
@@ -83,20 +100,6 @@ export default function Navbar() {
               <path d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
-        </div>
-        <div>
-          {currentUser ? (
-            <button
-              onClick={handleLogout}
-              className="text-black hover:text-gray-700 transition-all ease-in-out"
-            >
-              LOG OUT
-            </button>
-          ) : (
-            <Link to={"/Login"} className="text-black no-underline">
-              <Navbutton title="LOG IN" />
-            </Link>
-          )}
         </div>
       </div>
 
