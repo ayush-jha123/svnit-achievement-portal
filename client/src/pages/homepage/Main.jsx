@@ -33,15 +33,16 @@ export default function Main() {
   return (
     <div className="min-h-screen bg-gray-100 mt-16">
       <div className="text-center sm:text-3xl text-1.6rem font-semibold">
-        SARDAR VALLABHBHAI NATIONAL INSTITUTE OF TECHNOLOGY
+        SARDAR VALLABHBHAI <br />NATIONAL INSTITUTE OF TECHNOLOGY
       </div>
       <div className="text-center sm:text-3xl text-1.6rem mb-5 mt-2 font-semibold">SURAT</div>
-      <div className="text-center sm:text-4xl text-1.6rem mb-5 font-medium">ACHIEVEMENT PORTAL</div>
-      <div className="flex flex-col md:flex-row justify-center mb-12">
+      <div className="text-center sm:text-4xl text-1.6rem mb-5 font-medium text-white bg-[#00A3FF]">ACHIEVEMENT PORTAL</div>
+      <center>
+      <div className="">
         <div className="w-full md:w-2/3 flex justify-center">
           <img src="./assets/homepage.jpg" alt="Homepage Image" className="w-1/2 md:w-2/3 h-[550px] rounded-sm shadow-lg" />
         </div>
-        <div className="w-full md:w-full text-center md:text-left px-4 mt-40" >
+        <div className="w-full md:w-full text-center px-4 mt-20" >
           <p className="text-gray-800 text-4xl mb-4" >Achievement through effort or skill</p>
           <p className="text-gray-800 text-lg">
             It's possible this refers to a particular writing instruction or activity, like sorting
@@ -50,8 +51,8 @@ export default function Main() {
           </p>
         </div>
       </div>
-      <div className="text-center text-4xl text-gray-700 mb-4">RECENT</div>
-      <div className="text-center text-3xl font-bold text-gray-800 mb-12">ACHIEVEMENT</div>
+      </center>
+      <div className="text-center text-4xl text-white bg-[#00A3FF] mb-4 mt-16">RECENT ACHIEVEMENT</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {visAch.map((achievement) => (
           <CardAchievements
@@ -61,12 +62,12 @@ export default function Main() {
         ))}
       </div>
       <div className="text-center mb-12">
-        <Link to="/Achivements" className="text-black bg-gray-400 hover:bg-blue-700 hover:text-white transition duration-300 ease-in-out px-4 py-2 rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+        <Link to="/Achivements" className="text-white bg-[#00A3FF] hover:bg-white hover:text-[#00A3FF]  hover:font-bold transition duration-300 ease-in-out px-4 py-2 rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
           View More
         </Link>
 
       </div>
-      <div className="text-center text-3xl font-bold text-gray-800 mb-12">OPPORTUNITIES</div>
+      <div className="text-center text-3xl font-bold text-white bg-[#00A3FF] mb-12">OPPORTUNITIES</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 place-items-center">
         {visOpp.map((oppertunity) => (
           <div key={oppertunity?._id} className="">
@@ -77,10 +78,11 @@ export default function Main() {
         ))}
       </div>
       <div className="text-center mb-12">
-        <Link to={"/Opportunities"} className="text-black bg-gray-400 hover:bg-blue-700 hover:text-white transition duration-300 ease-in-out px-4 py-2 rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+        <Link to={"/Opportunities"} className="text-white bg-[#00A3FF] hover:bg-white hover:text-[#00A3FF]  hover:font-bold transition duration-300 ease-in-out px-4 py-2 rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
           View More
         </Link>
       </div>
+      
       <Footer />
       <ToastContainer />
     </div>
