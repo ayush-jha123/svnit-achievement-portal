@@ -27,13 +27,13 @@ const Sidebar = ({ handler }) => {
         </svg>
       </button>
 
-      <div className={`sidebar ${sidebarOpen ? 'block' : 'hidden'} md:block h-[60vh] w-full max-w-[300px] bg-[#9ED8FF] overflow-auto z-40 fixed md:sticky top-32 shadow-xl animate-fadeIn rounded-md`}>
+      <div className={`sidebar ${sidebarOpen ? 'block' : 'hidden'} md:block h-[60vh] w-full max-w-[300px] bg-[#00A3FF] overflow-auto z-40 fixed md:sticky top-32 shadow-xl animate-fadeIn rounded-md`}>
         <ul id="list" className="text-[2vw] list-none m-0 p-0">
           <li className="text-left">
             <span>
               <button
                 onClick={() => handler('Academics')}
-                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-3xl py-4"
+                className="text-left w-full hover:bg-[#fefeff] cursor-pointer  text-white hover:text-black text-3xl py-4"
               >
                 <span className="text-[2.6vw] mr-[1vw] ml-[1vw]">»</span> Academics
               </button>
@@ -43,7 +43,7 @@ const Sidebar = ({ handler }) => {
             <span>
               <button
                 onClick={() => handler('Extracurricular')}
-                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-3xl py-4"
+                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-white hover:text-black text-3xl py-4"
               >
                 <span className="text-[2.6vw] mr-[1vw] ml-[1vw]">»</span> Extracurricular
               </button>
@@ -53,7 +53,7 @@ const Sidebar = ({ handler }) => {
             <span>
               <button
                 onClick={() => handler('Placement')}
-                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-3xl py-4"
+                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-white hover:text-black text-3xl py-4"
               >
                 <span className="text-[2.6vw] mr-[1vw] ml-[1vw]">»</span> Placement
               </button>
@@ -63,7 +63,7 @@ const Sidebar = ({ handler }) => {
             <span>
               <button
                 onClick={() => handler('StartUp')}
-                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-3xl py-4"
+                className="text-left w-full hover:bg-[#fefeff] cursor-pointer text-white hover:text-black text-3xl py-4"
               >
                 <span className="text-[2.6vw] mr-[1vw] ml-[1vw]">»</span> Start Up
               </button>
