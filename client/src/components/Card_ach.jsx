@@ -83,50 +83,53 @@ const CardAchievements = ({ achievement }) => {
   console.log(likeCount);
   return (
     <div className="bg-white rounded-xl shadow-lg m-7 p-0 h-96 w-full max-w-md flex flex-col">
-  <div className="bar flex items-center h-16 bg-[#9ed8ff] rounded-t-xl p-4 text-lg">
-    <div className="rounded-full overflow-hidden w-20 h-20 bg-cover bg-center mr-2">
-      {achievement.userPicture ? (
-        <img className="w-full h-full" src={achievement?.userPicture} />
-      ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gray-500 text-lg font-bold text-white text-[2rem]">
-          {achievement?.postedby?.charAt(0)?.toUpperCase()}
+    <div className="bar flex items-center h-16 bg-[#00A3FF] rounded-t-xl p-4 text-lg">
+      <div className="rounded-full p-1 bg-white border-[3px] border-[#00A3FF] mr-2">
+        <div className="rounded-full overflow-hidden w-20 h-20 bg-cover bg-center">
+          {achievement.userPicture ? (
+            <img className="w-full h-full" src={achievement?.userPicture} />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-500 text-lg font-bold text-white text-[2rem]">
+              {achievement?.postedby?.charAt(0)?.toUpperCase()}
+            </div>
+          )}
         </div>
-      )}
+      </div>
+      <Link to={`/Ach_card_details/${achievement?._id}`}>
+        <span className="uppercase font-semibold text-white">
+          {achievement?.title}
+        </span>
+      </Link>
     </div>
-    <Link to={`/Ach_card_details/${achievement?._id}`}>
-      <span className="uppercase font-semibold">{achievement?.title}</span>
-    </Link>
-  </div>
-  <p className="mt-3 mx-5 hover:no-underline">
-    <b>Posted by:</b> {achievement?.postedby}
-  </p>
-  <div className="ml-4 mt-2 text-base flex-grow overflow-hidden">
-    <p id="font" className="mb-2">
-      <b>Name: </b>
-      {achievement?.body}
+    <p className="mt-3 mx-5 hover:no-underline">
+      <b>Posted by:</b> {achievement?.postedby}
     </p>
-    <p id="font" className="mb-2">
-      <b>Date: </b>
-      {achievement?.date}
-    </p>
-    <p id="font" className="mb-2">
-      <b>Achievement: </b> {achievement?.description}{" "}
-    </p>
-  </div>
-  <div className="flex justify-between items-center mx-4 mt-auto mb-4">
-    <div style={{ display: "flex", gap: "4px" }}>
-      <button onClick={handlelike}>
-        {likeToggle ? <AiFillLike /> : <AiOutlineLike />}
+    <div className="ml-4 mt-2 text-base flex-grow overflow-hidden">
+      <p id="font" className="mb-2">
+        <b>Name: </b>
+        {achievement?.body}
+      </p>
+      <p id="font" className="mb-2">
+        <b>Date: </b>
+        {achievement?.date}
+      </p>
+      <p id="font" className="mb-2">
+        <b>Achievement: </b> {achievement?.description}{" "}
+      </p>
+    </div>
+    <div className="flex justify-between items-center mx-4 mt-auto mb-4">
+      <div style={{ display: "flex", gap: "4px" }}>
+        <button onClick={handlelike}>
+          {likeToggle ? <AiFillLike /> : <AiOutlineLike />}
+        </button>
+        <p>{likeCount}</p>
+      </div>
+      <button onClick={handledelete}>
+        {currentUser?._id === achievement?.userid ? <MdDelete /> : ""}
       </button>
-      <p>{likeCount}</p>
     </div>
-    <button onClick={handledelete}>
-      {currentUser?._id === achievement?.userid ? <MdDelete /> : ""}
-    </button>
   </div>
-</div>
-
-  );
+);
 };
 
 export default CardAchievements;

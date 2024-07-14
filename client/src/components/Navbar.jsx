@@ -10,6 +10,7 @@ import { Avatar } from "@material-tailwind/react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [marginLeft, setMarginLeft] = useState("0rem");
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -30,18 +31,9 @@ export default function Navbar() {
       const width = window.innerWidth;
       if (width < 450) {
         setMarginLeft("0rem");
-      } 
-      else if (width >= 450 && width < 767) {
+      } else if (width >= 450 && width < 767) {
         setMarginLeft("-15vh");
-      }
-      // }else if (width < 800 && width >= 750) {
-      //   setMarginLeft("26rem");
-      // } else if (width < 750 ) {
-      //   setMarginLeft("20rem");
-      // } else if (width < 700) {
-      //   setMarginLeft("20rem");
-      // } 
-      else {
+      } else {
         setMarginLeft("0rem");
       }
     };
@@ -52,13 +44,32 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const divStyle = {
     marginLeft: marginLeft,
   };
 
   return (
     <>
-      <div className="navbar flex items-center justify-between h-16 w-full fixed top-0 bg-white shadow-md px-6 z-50">
+      <div
+        className={`navbar flex items-center justify-between h-16 w-full fixed top-0 px-6 z-50 transition-all ease-in-out duration-300 ${
+          scrolled
+            ? "bg-white/30 backdrop-blur-md shadow-lg"
+            : "bg-white shadow-md"
+        }`}
+      >
         <div className="title flex items-center">
           <img
             src="./assets/logo.svg"
@@ -70,13 +81,12 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <Navbuttons />
         </div>
-        
+
         <div style={divStyle}>
           {currentUser ? (
             <button
               onClick={handleLogout}
               className="text-black hover:text-gray-700 transition-all ease-in-out"
-              
             >
               LOG OUT
             </button>
@@ -86,7 +96,7 @@ export default function Navbar() {
             </Link>
           )}
         </div>
-        <div className="md:hidden flex items-center" >
+        <div className="md:hidden flex items-center">
           <button className="outline-none mobile-menu-button" onClick={toggleMenu}>
             <svg
               className="w-6 h-6 text-gray-500"
@@ -103,7 +113,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className={`mobile-menu ${menuOpen ? "flex" : "hidden"} md:hidden mt-20 justify-center pl-20 bg-gray-400`}>
+      <div
+        className={`mobile-menu ${
+          menuOpen ? "flex" : "hidden"
+        } md:hidden mt-20 justify-center pl-20 bg-gray-400`}
+      >
         <Navbuttons />
       </div>
     </>
