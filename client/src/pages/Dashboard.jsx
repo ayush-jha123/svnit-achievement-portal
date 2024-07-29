@@ -14,50 +14,62 @@ export default function Dashboard() {
 
   return (
     <div className="mt-16">
-      {credentials ? (
-        <div className="flex justify-around items-center bg-[#0d2445] shadow-lg p-6 pb-3">
-          <div className="w-1/3 relative right-30 rounded-lg flex flex-col items-center">
-            <img
-              className="icon w-36 h-36 mb-[-3.25rem] z-10 rounded-full border-4 border-white shadow-lg"
-              src={credentials.profilePicture}
-              alt=""
-              style={{ width: "150px", height: "150px" }}
-            />
-            <DashSide />
+    {credentials ? (
+      <div className="flex flex-col md:flex-row justify-around items-center bg-[#0d2445] shadow-lg p-6 md:p-8 rounded-lg">
+        <div className="w-full md:w-1/3 flex flex-col items-center mb-6 md:mb-0">
+          <img
+            className="w-36 h-36 rounded-full border-4 border-white shadow-lg"
+            src={credentials.profilePicture}
+            alt=""
+            style={{ width: "150px", height: "150px" }}
+          />
+          <DashSide />
+        </div>
+        <div className="w-full md:w-2/3 flex flex-col bg-[#0d2445] px-6 pb-6 rounded-lg">
+          <div className="w-full bg-gradient-to-b from-transparent to-black/25 shadow-lg px-6 pb-6 rounded-lg mb-8">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full">
+              <div className="text-4xl md:text-5xl font-semibold leading-snug md:leading-[4.5625rem] text-[#75b7e5]">
+                {credentials.name}
+              </div>
+              <div className="bg-[#d0e3f2]/[0.23] rounded-md px-3 text-xs text-white mt-2 md:mt-0">Verified</div>
+            </div>
+            <div className="text-3xl md:text-4xl font-semibold leading-snug md:leading-[3.25rem] text-[#d0e3f2] mt-2">{credentials.rollno}</div>
           </div>
-          <div className="w-2/3 flex flex-col items-center bg-[#0d2445] p-2 rounded-lg">
-            <div className="w-full bg-gradient-to-b from-transparent to-black/25 shadow-lg p-6 rounded-lg mb-16">
-              <div className="flex items-center justify-between w-full">
-                <div className="details text-5xl font-normal leading-[4.5625rem] text-[#75b7e5] ">{credentials.name}</div>
-                <div className="bg-[#d0e3f2]/[0.23] rounded-md px-3 text-xs">verified</div>
+          <div className="w-full mb-8">
+            <div className="flex flex-col md:flex-row justify-between">
+              <div className="text-3xl font-semibold leading-tight text-[#75b7e5]">
+                Personal Email 
+                <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.email}</div>
               </div>
-              <div className="text-4xl font-normal leading-[3.25rem] text-[#d0e3f2] mt-2">{credentials.rollno}</div>
-            </div>
-            <div className="flex justify-between w-full mb-20">
-              <div className="pem text-3xl font-normal leading-tight text-[#75b7e5]">
-                {" "}
-                Personal Email <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.email}</div>
-              </div>
-              <div className="dep text-3xl font-normal leading-tight text-[#75b7e5] ml-auto">
-                Department <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.department}</div>
+              <div className="text-3xl font-semibold leading-tight text-[#75b7e5] mt-4 md:mt-0">
+                Department 
+                <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.department}</div>
               </div>
             </div>
-            <div className="flex justify-between w-full mb-10">
-              <div className="text-3xl font-normal leading-tight text-[#75b7e5]">
-                Date of Birth <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{moment(credentials.dateOfBirth).utc().format('YYYY-MM-DD')}</div>
+            <div className="flex flex-col md:flex-row justify-between mt-4">
+              <div className="text-3xl font-semibold leading-tight text-[#75b7e5]">
+                Date of Birth 
+                <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{moment(credentials.dateOfBirth).utc().format('YYYY-MM-DD')}</div>
               </div>
-              <div className="deg text-3xl font-normal leading-tight text-[#75b7e5]">
-                Degree <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.degree}</div>
+              <div className="text-3xl font-semibold leading-tight text-[#75b7e5] mt-4 md:mt-0">
+                Degree 
+                <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.degree}</div>
               </div>
             </div>
-            <div className="flex justify-between w-full">
-              <div className="email text-2xl font-normal leading-tight text-[#75b7e5]">
-                LinkedIn <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.linkedIn}</div>
+            <div className="flex justify-between mt-4">
+              <div className="text-2xl font-semibold leading-tight text-[#75b7e5]">
+                LinkedIn 
+                <div className="text-xl font-normal leading-tight text-[#d2e5f3]">{credentials.linkedIn}</div>
               </div>
             </div>
           </div>
         </div>
-      ) : <div className="text-center text-xl text-red-600">Please Login to see your dashboard</div>}
-    </div>
+      </div>
+    ) : (
+      <div className="text-center text-xl text-red-600">Please Login to see your dashboard</div>
+    )}
+  </div>
+  
+
   );
 }
